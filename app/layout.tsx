@@ -3,6 +3,10 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { MenuBar } from '../components/MenuBar';
+import { Footer } from '../components/Footer';
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -16,9 +20,14 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-       
-      <body className={inter.className}>{children}</body>
+    <html lang="en" data-bs-theme="dark">
+      <body className={inter.className}>
+        <MenuBar/>
+        <div className="border border-danger">
+          {children}
+        </div>
+        <Footer />
+      </body>
     </html>
   )
 }

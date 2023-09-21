@@ -1,19 +1,15 @@
 import Link from 'next/link'
-import styles from './page.module.css'
+// import styles from './page.module.css'
 import React from 'react'
 
 const page = () => {
   return (
-    <main className={styles.main}>
+    <main>
       <h1>PAGE TWO</h1>
       <div>
-        <button>
-          <Link href={'/'}>Home</Link>
-        </button>
+        <Link href={'/'} className="btn btn-primary">Home</Link>
         -
-        <button>
-          <Link href={'/pageone'}>Página 1</Link>
-        </button>
+        <Link href={'/pageone'} className="btn btn-primary">Página 1</Link>
       </div>
     </main>
   )
