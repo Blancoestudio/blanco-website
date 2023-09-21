@@ -1,14 +1,14 @@
-import Image from 'next/image'
-import styles from './page.module.css'
 import Link from 'next/link'
+import styles from './page.module.css'
+import React from 'react'
 
-export default function Home() {
+const page = () => {
   return (
     <main className={styles.main}>
-      <h1>Home</h1>
+      <h1>PAGE ONE</h1>
       <div>
         <button>
-          <Link href={'/pageone'}>Página 1</Link>
+          <Link href={'/'}>Home</Link>
         </button>
         -
         <button>
@@ -18,3 +18,5 @@ export default function Home() {
     </main>
   )
 }
+
+export default page
