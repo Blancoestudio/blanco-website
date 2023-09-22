@@ -1,16 +1,21 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import ReactPlayer from 'react-player'
 
 import s from './styles.module.scss';
+import { Autoplay } from 'swiper/modules';
 
 export const OurServices = () => {
 
   const [videoURL, setVideoURL] = useState('videos/01.mp4')
 
-  let previewUrl = "videos/01.mp4";
+  useEffect(() => {
+    // Código para interactuar con react-player u otras bibliotecas aquí
+  }, []);
+
+  // let previewUrl = "videos/01.mp4";
   let data = [
     {
       id: "/01",
@@ -55,8 +60,6 @@ export const OurServices = () => {
 
   const onHover = (item: any) => {
     setVideoURL(item.preview);
-    console.log(item.preview);
-    
     // let player = document.querySelector(".react-player > video");
     // player?.setAttribute("src", item.preview);
   };
@@ -83,18 +86,22 @@ export const OurServices = () => {
                 </div>
               </div>
 
-              <div className="row">
+              <div className="row g-0">
                 <div className="d-none d-md-block col-md-4">
 
-                  <div className="sticky-top" style={{ top: 80 }}>
-                    {/* <ReactPlayer 
-                      url={'https://www.youtube.com/watch?v=LXb3EKWsInQ'} 
-                    /> */}
+                  <div className={`${s['player']} sticky-top`} >
+                    <ReactPlayer 
+                      playing={true}
+                      loop={true}
+                      width='100%'
+                      height={300}
+                      url={videoURL} 
+                    />
 
-                    <video className="react-player" loop autoPlay={true} width={300}>
+                    {/* <video className="react-player" loop autoPlay={true} width={300}>
                       <source src={videoURL} type="video/mp4" />
                       Tu navegador no soporta la reproducción de videos.
-                    </video>
+                    </video> */}
                     {/* <ReactPlayer
                       className="react-player"
                       url={previewUrl}
