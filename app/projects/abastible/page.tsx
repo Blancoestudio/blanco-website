@@ -63,13 +63,15 @@ export default function Page() {
                   >
                     {webImages.map((item: string | undefined, index: number) => (
                       <SwiperSlide key={index}>
-                        <Image 
-                          draggable="false"
-                          width={750} height={550}
-                          className={'border'}
-                          src={`${basePath}${item}`} 
-                          alt={"img"} 
-                          />
+                        <div className={`${s['img-wrapper']}`}>
+                          <Image 
+                            draggable="false"
+                            fill={true}
+                            className={'border'}
+                            src={`${basePath}${item}`} 
+                            alt={"img"} 
+                            />
+                        </div>
                       </SwiperSlide>
                     ))}
                   </Swiper>

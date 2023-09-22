@@ -23,6 +23,16 @@
   }
 }
 
+.img-wrapper {
+  width: 100%;
+  min-height: 375px;
+  img {
+    // height: 100%;
+    object-fit: contain;
+    object-position: left;
+  }
+}
+
 // @media (max-width: 575.98px) { ... }
 // @media (max-width: 767.98px) { ... }
 
@@ -35,6 +45,16 @@
       &:nth-child(2) {
         grid-column: 1/2;
       }
+    }
+  }
+
+  .img-wrapper {
+    width: 100%;
+    min-height: 160px;
+    img {
+      // height: 100%;
+      object-fit: contain;
+      object-position: left;
     }
   }
 

@@ -58,21 +58,22 @@ const page = () => {
                 <div>
                   <Swiper
                     loop
+                    width={675}
+                    height={375}
                     autoplay
                     navigation
-                    slidesPerView={1}
                     modules={[Navigation, Autoplay]}
                   >
                     {images.map((item: string | undefined, index: number) => (
-                      <SwiperSlide key={index}>
-                        <Image 
-                          draggable="false"
-                          width={'675'}
-                          height={'375'}
-                          className={'border'}
-                          src={`${basePath}${item}`} 
-                          alt={"img"} 
-                          />
+                      <SwiperSlide key={index} className="border">
+                        <div className={`${s['img-wrapper']}`}>
+                          <Image 
+                            draggable="false"
+                            fill={true}
+                            src={`${basePath}${item}`} 
+                            alt={"img"} 
+                            />
+                        </div>
                       </SwiperSlide>
                     ))}
                   </Swiper>
@@ -86,28 +87,6 @@ const page = () => {
           </div>
         </div>
       </div>
-
-      {/* <div className={s["container"]}>
-        <div className={s["content"]}>
-          <div className={s["left"]}>
-            <div className={s["item"]}>
-              Desarrollo de plataforma para Terramar Estados Unidos para seguimiento y control de importaciones y
-              exportaciones de materia prima.
-            </div>
-            <div className={s["item"]}>
-              Sistema de control y monitoreo de stocks, BL, trazabilidad inbound y outbound, control de embarques y
-              documentación.
-            </div>
-          </div>
-          <div className={s["right"]}>
-            <ImageCarousel images={images} />
-          </div>
-        </div>
-      </div>
-
-      <div className={s["footer-container"]}>
-        <FooterSector />
-      </div> */}
     </div>
   )
 }

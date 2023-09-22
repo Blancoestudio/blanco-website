@@ -79,14 +79,14 @@ const page = () => {
                   >
                     {images.map((item: string | undefined, index: number) => (
                       <SwiperSlide key={index}>
-                        <Image 
-                          draggable="false"
-                          width={'675'}
-                          height={'375'}
-                          className={'border'}
-                          src={`${basePath}${item}`} 
-                          alt={"img"} 
-                          />
+                        <div className={`${s['img-wrapper']}`}>
+                          <Image 
+                            draggable="false"
+                            fill={true}
+                            src={`${basePath}${item}`} 
+                            alt={"img"} 
+                            />
+                        </div>
                       </SwiperSlide>
                     ))}
                   </Swiper>
