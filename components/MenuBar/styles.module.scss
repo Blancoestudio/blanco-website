@@ -1,0 +1,16 @@
+
+.menu-main-wrapper {
+  width: 100%;
+  height: 65px;
+  position: fixed;
+  z-index: 1;
+  backdrop-filter: blur(4px);
+  background: rgba($color: #232323, $alpha: .2);
+  top: 0px;
+  transition: top .25s linear;
+  z-index: 2;
+  &.hidden {
+    top: -65px;
+    transition: top .25s linear;
+  }
+}
