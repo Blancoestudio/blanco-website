@@ -141,11 +141,11 @@ export const OurServices = () => {
                                     <p className="karla">{item.id}</p>
                                   </div>
                                   <div className={s["list-item-detail"]}>
-                                    <p className={`${s["list-item-name"]} karla`}>{item.name}</p>
+                                    <p className={`${s["list-item-name"]} karla mb-1`}>{item.name}</p>
                                     <div className={s["list-item-tags"]}>
                                       {item.tags?.map((tag, j) => {
                                         return (
-                                          <p className={`${s["list-item-tag"]} nunito`} key={j}>
+                                          <p className={`${s["list-item-tag"]} nunito mb-0`} key={j}>
                                             {tag}
                                           </p>
                                         );
