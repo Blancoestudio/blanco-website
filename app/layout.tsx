@@ -1,13 +1,18 @@
 
-import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+// import { Inter } from 'next/font/google'
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+
+import '../assets/styles/globals.scss'
+
 import { MenuBar } from '../components/MenuBar';
 import { Footer } from '../components/Footer';
+import { karla, nunito } from '@/assets/fonts';
 
-const inter = Inter({ subsets: ['latin'] })
+
+
+// const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -21,9 +26,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" data-bs-theme="dark">
-      <body className={inter.className}>
+      <body className={`${ karla.variable } ${ nunito.variable }`}>
         <MenuBar/>
-        <div className="border border-danger">
+        <div>
           {children}
         </div>
         <Footer />
