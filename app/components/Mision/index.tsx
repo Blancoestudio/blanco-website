@@ -24,15 +24,15 @@ export const Mision = () => {
               </div>
               <div className={s["data"]}>
                 <small>Clientes regulares</small>
-                <span className="karla display-2">90%</span>
+                <span className="karla">90%</span>
               </div>
               <div className={s["data"]}>
                 <small>Especialistas</small>
-                <span className="karla display-2">9</span> 
+                <span className="karla">9</span> 
               </div>
               <div className={`${s["data"]} border-end-0`}>
                 <small>Nada nos detiene desde</small>
-                <span className="karla display-2">2020</span> 
+                <span className="karla">2020</span> 
               </div>
               <div>
                 <p>¿Tienes un sueño y no sabes cómo llevarlo a la realidad?</p>

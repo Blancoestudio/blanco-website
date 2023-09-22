@@ -36,6 +36,12 @@
     border-top: 1px solid #333333;
     border-bottom: 1px solid #333333;
     border-right: 1px solid #333333;
+    small {
+      font-size: 1em;
+    }
+    span {
+      font-size: 3em;
+    }
   }
 }
 
@@ -62,6 +68,14 @@
       }
       &:last-child {
         grid-column: 1/2;
+      }
+    }
+    .data {
+      small {
+        font-size: 1.5em;
+      }
+      span {
+        font-size: 5em;
       }
     }
   }  
