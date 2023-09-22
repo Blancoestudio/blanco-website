@@ -19,7 +19,7 @@ const page = () => {
   const images = Array(8)
     .fill(0)
     .map((item, index) => {
-      return `/images/Terramar/Web/Terramar_web_${index + 1}.png`;
+      return `/images/terramar/Web/Terramar_web_${index + 1}.png`;
     });
 
   return (
@@ -51,7 +51,7 @@ const page = () => {
               
               <div className={`${s['inner-service-wrapper']}`}>
                 <div>
-                  <p className="fs-5">Desarrollo de plataforma para Terramar Estados Unidos para seguimiento y control de importaciones y exportaciones de materia prima.</p>
+                  <p className="fs-5 text-center text-md-start">Desarrollo de plataforma para Terramar Estados Unidos para seguimiento y control de importaciones y exportaciones de materia prima.</p>
                 </div>
                 <div>
                   <Swiper
@@ -76,7 +76,7 @@ const page = () => {
                   </Swiper>
                 </div>
                 <div>
-                  <p className="fs-5">Sistema de control y monitoreo de stocks, BL, trazabilidad inbound y outbound, control de embarques y documentación.</p>
+                  <p className="fs-5 text-center text-md-start">Sistema de control y monitoreo de stocks, BL, trazabilidad inbound y outbound, control de embarques y documentación.</p>
                 </div>
               </div>
 

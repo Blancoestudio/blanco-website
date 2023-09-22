@@ -18,7 +18,7 @@ const page = () => {
   const images = Array(6)
     .fill(0)
     .map((item, index) => {
-      return `/images/AlexStewart/Web/AlexStewart_web_${index + 1}.png`;
+      return `/images/alex-stewart/Web/AlexStewart_web_${index + 1}.png`;
     });
 
   return (
@@ -51,7 +51,7 @@ const page = () => {
               
               <div className={`${ s['inner-service-wraper'] }`}>
                 <div>
-                  <p className="fs-5">Se desarrolla una plataforma que permite un mejor control, seguimiento y gestión de operaciones, pudiendo monitorear los tiempos de facturación, y envío de informes. Generando una plataforma ágil y amigable para el usuario.</p>
+                  <p className="fs-5 text-center text-md-start">Se desarrolla una plataforma que permite un mejor control, seguimiento y gestión de operaciones, pudiendo monitorear los tiempos de facturación, y envío de informes. Generando una plataforma ágil y amigable para el usuario.</p>
                 </div>
                 <div>
                   {/* <Swiper

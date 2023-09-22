@@ -130,6 +130,11 @@ body {
   font-family: var(--font-nunito) !important;
 }
 
+main {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 // fonts
 .karla {
   font-family: var(--font-karla);
@@ -194,6 +199,13 @@ body {
 
 .header-title {
   font-size: 6vw;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  &::after {
+    color: #000000;
+  }
 }
 
 // @media (max-width: 575.98px) { ... }

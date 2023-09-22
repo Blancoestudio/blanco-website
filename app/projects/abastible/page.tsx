@@ -24,7 +24,7 @@ export default function Page() {
   const appImages = Array(6)
     .fill(0)
     .map((item, index) => {
-      return `/images/abastible/App/Abastible_App_${index + 1}.png`;
+      return `images/abastible/App/Abastible_App_${index + 1}.png`;
     });
   return (
     <main className="bg-black">
@@ -51,58 +51,50 @@ export default function Page() {
       <div className="py-5">
         <div className="container">
           <div className="row justify-content-center">
-            <div className="col-11">
 
-              <div className={s["container"]}>
-                <div className={s["webContent"]}>
-                  <div className={`${s["left"]}`}>
-                    {/* <ImageCarousel images={webImages} /> */}
-                    <div className="">
-                      <Swiper
-                        loop
-                        autoplay
-                        navigation
-                        slidesPerView={1}
-                        modules={[Navigation, Autoplay]}
-                      >
-                        {webImages.map((item: string | undefined, index: number) => (
-                          <SwiperSlide key={index}>
-                            <Image 
-                              draggable="false"
-                              width={'725'}
-                              height={'525'}
-                              className={'border'}
-                              src={`${basePath}/${item}`} 
-                              alt={"img"} 
-                              />
-                          </SwiperSlide>
-                        ))}
-                      </Swiper>
-                    </div>
-                  </div>
-                  <div className={s["right"]}>
-                    <div className={s["item"]}>
-                      <div className={s["title"]}>Familia Naranja</div>
-                      Desarrollo de plataforma interna, para distribuidores para solicitud de pedidos, descuentos,
-                      seguimiento de flota y merchandising.
-                    </div>
-                    <div className={s["item"]}>Conexión en sistemas internos de Abastible de alta recurrencia,</div>
-                  </div>
-                </div>
-                <div className={s["appContent"]}>
-                  <div className={s["left"]}>
-                    <div className={s["title"]}>Aplicaciones para clientes y repartidores</div>
-                    <div className={s["detail"]}>
-                      Desarrollo de aplicación móvil para solicitar gas a domicilio sea envasado o granel, incluyendo
-                      geoposicionamiento, aviso de proximidad y pago.
-                    </div>
-                  </div>
-                  <div className={s["right"]}>
-                    <AppImageCarousel images={appImages} /> 
-                  </div>
-                </div>
+              <div className={`${s['inner-service-wrapper']} mb-5`}>
+                <div>
+                  <Swiper
+                    loop
+                    autoplay
+                    navigation
+                    slidesPerView={1}
+                    modules={[Navigation, Autoplay]}
+                  >
+                    {webImages.map((item: string | undefined, index: number) => (
+                      <SwiperSlide key={index}>
+                        <Image 
+                          draggable="false"
+                          width={750} height={550}
+                          className={'border'}
+                          src={`${basePath}${item}`} 
+                          alt={"img"} 
+                          />
+                      </SwiperSlide>
+                    ))}
+                  </Swiper>
+                </div>    
+                <div>
+                  <p className="fs-5 text-center text-md-start">Desarrollo de plataforma interna, para distribuidores para solicitud de pedidos, descuentos, seguimiento de flota y merchandising.</p>  
+                </div>    
+                <div>
+                  <p className="fs-5 text-center text-md-start">Desarrollo de aplicación móvil para solicitar gas a domicilio sea envasado o granel, incluyendo geoposicionamiento, aviso de proximidad y pago.</p>  
+                </div>    
               </div>
 
+          </div>
+
+          <div className="row justify-content-center mt-5">
+            <div className="col-12 col-md-9">
+              <div className="row g-5 align-items-center">
+                <div className="col-12 col-md-5 px-5 px-md-0">
+                  <h3 className="karla text-center text-md-start">Aplicaciones para clientes y repartidores</h3>
+                  <p className="fs-5 text-center text-md-start">Desarrollo de aplicación móvil para solicitar gas a domicilio sea envasado o granel, incluyendo geoposicionamiento, aviso de proximidad y pago.</p>
+                </div>
+                <div className="col-12 col-md-6 offset-md-1">
+                  <AppImageCarousel images={appImages} /> 
+                </div>
+              </div>
             </div>
           </div>
         </div>

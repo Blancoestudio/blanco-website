@@ -1,6 +1,8 @@
 // "server";
 "use client";
 
+import { basePath } from '../../../next.config.js';
+
 import bg from "../../../assets/images/beewise.png";
 
 // import ImageCarousel from "../components/WebImageCarousel";
@@ -20,12 +22,12 @@ export default function Page() {
   const webImages = Array(3)
     .fill(0)
     .map((item, index) => {
-      return `/images/BeeWise/Web/Beewise_web_${index + 1}.png`;
+      return `/images/beeWise/Web/Beewise_web_${index + 1}.png`;
     });
   const appImages = Array(7)
     .fill(0)
     .map((item, index) => {
-      return `/images/BeeWise/App/Beewise_App_${index + 1}.png`;
+      return `images/beeWise/App/Beewise_App_${index + 1}.png`;
     });
   return (
     <main className="bg-black">
@@ -58,7 +60,7 @@ export default function Page() {
 
               <div className={`${s['inner-service-wrapper']} mb-5`}>
                 <div>
-                  <p className="fs-5">Es una herramienta de gamificación es decir, facilita el proceso de aprendizaje y consolidación de manera divertida, generando una experiencia positiva en el usuario.</p>
+                  <p className="fs-5 text-center text-md-start">Es una herramienta de gamificación es decir, facilita el proceso de aprendizaje y consolidación de manera divertida, generando una experiencia positiva en el usuario.</p>
                 </div>
                 <div>
                   <Swiper
@@ -70,13 +72,13 @@ export default function Page() {
                   >
                     {webImages.map((item: string | undefined, index: number) => (
                       <SwiperSlide key={index}>
-                        <Image src={item!} width={850} height={575} draggable="false" alt={"img"} />
+                        <Image src={`${item}`} width={850} height={575} draggable="false" alt={"img"} />
                       </SwiperSlide>
                     ))}
                   </Swiper>
                 </div>
                 <div>
-                  <p className="fs-5">Beewise permitirá disponer de data para analizar y mejorar el proceso que está apoyando</p>
+                  <p className="fs-5 text-center text-md-start">Beewise permitirá disponer de data para analizar y mejorar el proceso que está apoyando</p>
                 </div>
               </div>
 
@@ -85,7 +87,7 @@ export default function Page() {
                   <AppImageCarousel images={appImages} />
                 </div>
                 <div className="col-12 col-md-5">
-                  <p className="fs-4">Es un juego de desafíos con preguntas de selección múltiple. La dinámica consiste en que cada jugador debe desafiar a un oponente del equipo rival y el mejor de 5 preguntas aleatorias gana el desafío.</p>
+                  <p className="fs-5 mt-5 text-center text-md-start">Es un juego de desafíos con preguntas de selección múltiple. La dinámica consiste en que cada jugador debe desafiar a un oponente del equipo rival y el mejor de 5 preguntas aleatorias gana el desafío.</p>
                 </div>
               </div>
 
