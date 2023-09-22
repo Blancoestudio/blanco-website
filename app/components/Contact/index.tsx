@@ -9,7 +9,6 @@ export const Contact = () => {
         <div className="row h-100 align-items-center">
           <div className="col">
 
-            <div className="border">
               <div className={`${s["header"]} mb-5`}>
                 <h1 className="text-center text-uppercase karla">Colaboramos<br/> para lograr tus<br/> objetivos</h1>
               </div>
@@ -43,9 +42,8 @@ export const Contact = () => {
                     </MyGradientButton> */}
                   </form>
                 </div>
-                <a className="btn btn-link text-white text-decoration-none fs-5 mt-5 mt-md-0" href="mailto:info@blanco-brand.com" role="button">info@blanco-brand.com</a>
+                <a className="btn btn-gradient text-white text-decoration-none fs-5 mt-5 mt-md-0" href="mailto:info@blanco-brand.com" role="button">info@blanco-brand.com</a>
               </div>
-            </div>
 
           </div>
         </div>
