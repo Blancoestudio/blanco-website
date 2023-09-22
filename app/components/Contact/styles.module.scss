@@ -22,11 +22,14 @@
 
 .contact-container {
   display: flex;
+  align-items: center;
+  gap: 1em;
   form {
-    align-items: center;
+    align-items: stretch;
     display: flex;
     justify-content: center;
     input {
+      border: 1px solid gray;
       width: 450px;
       border-radius: 37px;
       // border: 1px solid gray;

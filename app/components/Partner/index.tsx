@@ -16,7 +16,7 @@ const Partner: React.FC<PropTypes> = ({ name, role, image, description, linkedin
   return (
       <div className={`${s['partner-wrapper']} text-white`}>
         <div className={`${s['comment']} ${ isOpen ? s['open'] : null }`}>
-          <p className="fs-5">{ description ? description : 'Comment' }</p>
+          <p className="fs-5 text-center text-md-end">{ description ? description : 'Comment' }</p>
         </div>
         <button 
           type="button" 

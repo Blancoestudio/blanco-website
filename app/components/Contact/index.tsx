@@ -40,9 +40,10 @@ export const Contact = () => {
                     >
                       <span className="fs-5 px-4" style={{ letterSpacing: '2px' }}>Contáctanos</span>
                     </MyGradientButton> */}
+                    <button className="btn btn-gradient text-white text-decoration-none fs-5 mt-5 mt-md-0" type="submit">Contáctanos</button>
                   </form>
+                  <a className="btn btn-link text-white text-decoration-none fs-5 mt-5 mt-md-0" href="mailto:info@blanco-brand.com" role="button">info@blanco-brand.com</a>
                 </div>
-                <a className="btn btn-gradient text-white text-decoration-none fs-5 mt-5 mt-md-0" href="mailto:info@blanco-brand.com" role="button">info@blanco-brand.com</a>
               </div>
 
           </div>
