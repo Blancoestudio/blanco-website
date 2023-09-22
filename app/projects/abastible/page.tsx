@@ -19,12 +19,12 @@ export default function Page() {
   const webImages = Array(5)
     .fill(0)
     .map((item, index) => {
-      return `/abastible/Web/Abastible_web_${index + 1}.png`;
+      return `/images/abastible/Web/Abastible_web_${index + 1}.png`;
     });
   const appImages = Array(6)
     .fill(0)
     .map((item, index) => {
-      return `/abastible/App/Abastible_App_${index + 1}.png`;
+      return `/images/abastible/App/Abastible_App_${index + 1}.png`;
     });
   return (
     <main className="bg-black">
@@ -72,7 +72,7 @@ export default function Page() {
                               width={'725'}
                               height={'525'}
                               className={'border'}
-                              src={item!} 
+                              src={`${basePath}/${item}`} 
                               alt={"img"} 
                               />
                           </SwiperSlide>
