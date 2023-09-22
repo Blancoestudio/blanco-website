@@ -98,7 +98,6 @@ export const Portfolio = () => {
 
   return (
     <div className="section full">
-      <div className="border">
 
         <div className={`${s["wrapper-slider"]}`}>
           <Swiper
@@ -123,7 +122,7 @@ export const Portfolio = () => {
                     <div className="row h-100 align-items-center justify-content-center">
                       <div className="col-8">
                         <p><span className={`${s['description']}`}>{item.description}</span></p>
-                        <h2 className="mb-3 karla" style={{ fontSize: '4em' }}>{item.title}</h2>
+                        <h2 className={`${s['name']} mb-3 karla`}>{item.title}</h2>
                         <Link href={ `${item.link}` } target={ item.external ? '_blank' : '' } className="btn-gradient text-white text-decoration-none">
                           {item.external ? "Visitar sitio" : "Descripción"}
                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-up-right" viewBox="0 0 16 16">
@@ -150,7 +149,6 @@ export const Portfolio = () => {
           </Swiper>
         </div>
 
-      </div>
     </div>
   )
 }

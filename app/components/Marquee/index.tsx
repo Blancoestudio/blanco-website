@@ -17,7 +17,7 @@ export const Marquee = () => {
                       .fill(0)
                       .map((_, index) => {
                         return (
-                          <span className={`${s.marqueeItem} display-1 text-white karla`} key={index}>
+                          <span className={`${s.marqueeItem} karla`} key={index}>
                             &ldquo;Change the world&ldquo; - &ldquo;Dream out loud&ldquo;
                           </span>
                         );
@@ -29,7 +29,7 @@ export const Marquee = () => {
                       .fill(0)
                       .map((_, index) => {
                         return (
-                          <span className={`${s.marqueeItem} display-1 text-white karla`} key={index}>
+                          <span className={`${s.marqueeItem} karla`} key={index}>
                             &ldquo;Kiss the future&ldquo; - &ldquo;Don&apos;t give up&ldquo;
                           </span>
                         );

@@ -8,11 +8,13 @@
 
 .marqueeItem {
   text-transform: uppercase;
+  color: #ffffff;
+  font-size: 6em;
 }
 
 .marquee {
   // height: calc(145px * 3);
-  height: 14em;
+  height: 18em;
   width: 200vw;
   overflow: hidden;
   position: relative;
@@ -71,11 +73,18 @@
 @media (max-width: 991.98px) {
 
   .marquee-wrapper {
-    height: 50vh;
     position: relative;
     overflow: hidden;
     display: flex;
     align-items: center;
+  }
+
+  .marqueeItem {
+    font-size: 6em;
+  }
+
+  .marquee {
+    height: 20em;
   }
 
 }

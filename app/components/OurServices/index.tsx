@@ -141,7 +141,7 @@ export const OurServices = () => {
                                     <p className="karla">{item.id}</p>
                                   </div>
                                   <div className={s["list-item-detail"]}>
-                                    <p className={s["list-item-name"]}>{item.name}</p>
+                                    <p className={`${s["list-item-name"]} karla`}>{item.name}</p>
                                     <div className={s["list-item-tags"]}>
                                       {item.tags?.map((tag, j) => {
                                         return (
