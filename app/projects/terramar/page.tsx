@@ -2,6 +2,8 @@
 
 import React from 'react'
 
+import { basePath } from '../../../next.config.js';
+
 import bg from "../../../assets/images/terramar.png";
 
 import Image from 'next/image';
@@ -68,7 +70,7 @@ const page = () => {
                           width={'675'}
                           height={'375'}
                           className={'border'}
-                          src={item!} 
+                          src={`${basePath}${item}`} 
                           alt={"img"} 
                           />
                       </SwiperSlide>

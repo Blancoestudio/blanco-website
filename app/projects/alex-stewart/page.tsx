@@ -3,6 +3,8 @@
 import React from 'react'
 import Image from 'next/image'
 
+import { basePath } from '../../../next.config.js';
+
 import bg from "../../../assets/images/alexstewart.png";
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -82,7 +84,7 @@ const page = () => {
                           width={'675'}
                           height={'375'}
                           className={'border'}
-                          src={item!} 
+                          src={`${basePath}${item}`} 
                           alt={"img"} 
                           />
                       </SwiperSlide>

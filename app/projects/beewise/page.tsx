@@ -72,7 +72,7 @@ export default function Page() {
                   >
                     {webImages.map((item: string | undefined, index: number) => (
                       <SwiperSlide key={index}>
-                        <Image src={`${item}`} width={850} height={575} draggable="false" alt={"img"} />
+                        <Image src={`${basePath}${item}`}  width={850} height={575} draggable="false" alt={"img"} />
                       </SwiperSlide>
                     ))}
                   </Swiper>
