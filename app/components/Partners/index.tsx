@@ -1,21 +1,22 @@
 'use client'
 
-import React, { useState } from 'react'
-
-import { Swiper as SwiperCmp } from 'swiper';
-
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper/modules';
-
-import 'swiper/css';
-import 'swiper/css/navigation';
+import React, { useEffect, useRef, useState } from 'react'
 
 import s from './styles.module.scss';
-import Partner from '../Partner';
+import PartnerItem from '../PartnerItem';
+
+// Import Swiper React components
+import SwiperCore, { Swiper } from 'swiper';
+import { Swiper as SwiperComponent, SwiperSlide } from 'swiper/react';
+import { Pagination } from 'swiper/modules';
+
+SwiperCore.use([Pagination]);
+
+import 'swiper/css';
 
 export const Partners = () => {
 
-  const [swiper, setSwiper] = useState<SwiperCmp | null>(null);
+  const [swiper, setSwiper] = useState<Swiper | null>(null);
   const [commentActive, setCommentActive] = useState(0);
 
   let data = [
@@ -55,7 +56,7 @@ export const Partners = () => {
 
   const handleSliderComments = (i: number) => {
     swiper?.slideTo(i);
-    setCommentActive(i)
+    setCommentActive(i);
   }
 
   return (
@@ -70,7 +71,7 @@ export const Partners = () => {
               {data.map((item, index) => (
                 <li 
                   key={index} 
-                  className={ `${s['custom-pagination-item']} ${commentActive === index ? 'active' : ''}` } 
+                  className={ `${s['custom-pagination-item']} ${commentActive === index ? s['active'] : ''}` } 
                   onClick={ () => handleSliderComments(index) }
                   >
                     0{index + 1}
@@ -78,35 +79,43 @@ export const Partners = () => {
               ))}
             </ul>
           </div>
-          <div className="col-12 col-md-6 offset-md-1">
-            <Swiper
-              loop
-              navigation={{
-                nextEl: '.button-next',
-                prevEl: '.button-prev',
-              }}
-              slidesPerView={1}
-              modules={[Navigation]}
-              className="h-100"
-            >
+          <div className="col-12 col-md-7 offset-md-1"></div>
+        </div>
+      </div>
+
+      <div className={`${s['comment-slider-wrapper']}`}>
+        <div className={`${s['comment-slider']}`}>
+          <div className={`${s['gradient']} d-none d-md-block`}></div>
+
+          <SwiperComponent
+            modules={[ Pagination ]}
+            grabCursor={true}
+            wrapperClass={`${s['swiper-products']}`}
+            spaceBetween={25}
+            onSwiper={ (swiperInstance) => setSwiper(swiperInstance) }
+            onSlideChange={(swiper) => setCommentActive(swiper.activeIndex)}
+            pagination={{ 
+              type: 'custom',
+              el: '.custom-pagination', 
+            }}
+            breakpoints={{
+              640: {
+                slidesPerView: 1,
+              },
+              768: {
+                slidesPerView: 1.35,
+              },
+            }}
+          >
+            
               {data.map((item, index) => (
-                <SwiperSlide className={`${s['swiper-item']}`} key={index}>
-                  <Partner key={index} {...item}  />
+                <SwiperSlide key={index} className={`${s['swiper-item']} `}>
+                    <PartnerItem key={index} {...item}  />
                 </SwiperSlide>
               ))}
               
-              {/* <button className={`button-prev ${s['btn-slider']} ${s['prev']}`}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-arrow-left" viewBox="0 0 16 16">
-                  <path fillRule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
-                </svg>
-              </button>
-              <button className={`button-next ${s['btn-slider']} ${s['next']}`}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-arrow-right" viewBox="0 0 16 16">
-                  <path fillRule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
-                </svg>
-              </button> */}
-            </Swiper>
-          </div>
+          </SwiperComponent>
+
         </div>
       </div>
     </div>

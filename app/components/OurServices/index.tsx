@@ -68,100 +68,92 @@ export const OurServices = () => {
           <div className="col">
 
 
-              <div className="container text-white">
-                <div className="row justify-content-center">
-                  <div className="col-11">
+              <div className="row my-5">
+                <div className="col display-3">
+                  <h1 className="text-white karla" style={{ fontSize: '1em' }}>NUESTRAS FORTALEZAS <br /> <span>y diferenciación</span></h1>
+                </div>
+              </div>
 
-                    <div className="row my-5">
-                      <div className="col display-3">
-                        <h1 className="text-white karla" style={{ fontSize: '1em' }}>NUESTRAS FORTALEZAS <br /> <span>y diferenciación</span></h1>
-                      </div>
-                    </div>
-
-                    <div className="row mb-5">
-                      <div className="col offset-md-6">
-                        <div className={`${s["description-content"]} nunito`}>
-                          <p className="mb-3 mb-md-0">Nos fortalece el entregar soluciones de impacto en la sociedad.</p>
-                          <p>Esto nos permite estar siempre conectados con al realidad y el futuro.</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="row">
-                      <div className="d-none d-md-block col-md-4">
-
-                        <div className="sticky-top" style={{ top: 80 }}>
-                          <video className="react-player" loop autoPlay width={300}>
-                            <source src={videoURL} type="video/mp4" />
-                            Tu navegador no soporta la reproducción de videos.
-                          </video>
-                          {/* <ReactPlayer
-                            className="react-player"
-                            url={previewUrl}
-                            muted
-                            loop
-                            playing
-                            width={"fit-content"}
-                            height={"fit-content"}
-                            config={{
-                              file: {
-                                attributes: {
-                                  controlsList: "nodownload",
-                                },
-                              },
-                            }}
-                          /> */}
-                        </div>
-
-                      </div>
-                      <div className="col offset-md-1">
-
-                        <div className={s["list-container"]}>
-                          {data.map((item, index) => {
-                            let aniStart = index * 10;
-                            let aniEnd = aniStart + 50;
-                            if (aniStart < 0) {
-                              aniStart = 0;
-                            }
-                            if (aniEnd < 0) {
-                              aniEnd = 0;
-                            }
-                            let xStart = aniStart * 0.5;
-                            let opStart = 1 - aniEnd / 100;
-
-                            return (
-                              <div
-                                key={index}
-                                onMouseEnter={() => {
-                                  onHover(item);
-                                }}
-                              >
-                                <div className={s["list-item"]}>
-                                  <div className={s["list-item-id"]}>
-                                    <p className="karla">{item.id}</p>
-                                  </div>
-                                  <div className={s["list-item-detail"]}>
-                                    <p className={`${s["list-item-name"]} karla mb-1`}>{item.name}</p>
-                                    <div className={s["list-item-tags"]}>
-                                      {item.tags?.map((tag, j) => {
-                                        return (
-                                          <p className={`${s["list-item-tag"]} nunito mb-0`} key={j}>
-                                            {tag}
-                                          </p>
-                                        );
-                                      })}
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            );
-                          })}
-                        </div>
-
-                      </div>
-                    </div>
-
+              <div className="row mb-5">
+                <div className="col offset-md-6">
+                  <div className={`${s["description-content"]} nunito`}>
+                    <p className="mb-3 mb-md-0">Nos fortalece el entregar soluciones de impacto en la sociedad.</p>
+                    <p>Esto nos permite estar siempre conectados con al realidad y el futuro.</p>
                   </div>
+                </div>
+              </div>
+
+              <div className="row">
+                <div className="d-none d-md-block col-md-4">
+
+                  <div className="sticky-top" style={{ top: 80 }}>
+                    <video className="react-player" loop autoPlay width={300}>
+                      <source src={videoURL} type="video/mp4" />
+                      Tu navegador no soporta la reproducción de videos.
+                    </video>
+                    {/* <ReactPlayer
+                      className="react-player"
+                      url={previewUrl}
+                      muted
+                      loop
+                      playing
+                      width={"fit-content"}
+                      height={"fit-content"}
+                      config={{
+                        file: {
+                          attributes: {
+                            controlsList: "nodownload",
+                          },
+                        },
+                      }}
+                    /> */}
+                  </div>
+
+                </div>
+                <div className="col offset-md-1">
+
+                  <div className={s["list-container"]}>
+                    {data.map((item, index) => {
+                      let aniStart = index * 10;
+                      let aniEnd = aniStart + 50;
+                      if (aniStart < 0) {
+                        aniStart = 0;
+                      }
+                      if (aniEnd < 0) {
+                        aniEnd = 0;
+                      }
+                      let xStart = aniStart * 0.5;
+                      let opStart = 1 - aniEnd / 100;
+
+                      return (
+                        <div
+                          key={index}
+                          onMouseEnter={() => {
+                            onHover(item);
+                          }}
+                        >
+                          <div className={s["list-item"]}>
+                            <div className={s["list-item-id"]}>
+                              <p className="karla">{item.id}</p>
+                            </div>
+                            <div className={s["list-item-detail"]}>
+                              <p className={`${s["list-item-name"]} karla mb-1`}>{item.name}</p>
+                              <div className={s["list-item-tags"]}>
+                                {item.tags?.map((tag, j) => {
+                                  return (
+                                    <p className={`${s["list-item-tag"]} nunito mb-0`} key={j}>
+                                      {tag}
+                                    </p>
+                                  );
+                                })}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+
                 </div>
               </div>
 

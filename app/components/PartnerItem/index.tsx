@@ -10,7 +10,7 @@ interface PropTypes {
   linkedin: string,
 }
 
-const Partner: React.FC<PropTypes> = ({ name, role, image, description, linkedin }) => {
+const PartnerItem: React.FC<PropTypes> = ({ name, role, image, description, linkedin }) => {
   const [isOpen, setIsOpen] = useState(false);
   
   return (
@@ -79,4 +79,4 @@ const Partner: React.FC<PropTypes> = ({ name, role, image, description, linkedin
   )
 }
 
-export default Partner
+export default PartnerItem

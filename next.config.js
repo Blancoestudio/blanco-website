@@ -3,7 +3,7 @@
 const isProd = process.env.NODE_ENV === 'production';
 
 const nextConfig = {
-  output: isProd ? 'export' : '',
+  output: isProd ? 'export' : 'standalone',
   basePath: isProd ? '/blanco-website' : '',
 }
 
