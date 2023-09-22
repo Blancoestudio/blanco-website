@@ -2,6 +2,8 @@
 
 import React, { useState } from 'react'
 
+import { Swiper as SwiperCmp } from 'swiper';
+
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 
@@ -13,7 +15,7 @@ import Partner from '../Partner';
 
 export const Partners = () => {
 
-  const [swiper, setSwiper] = useState<Swiper | null>(null);
+  const [swiper, setSwiper] = useState<SwiperCmp | null>(null);
   const [commentActive, setCommentActive] = useState(0);
 
   let data = [
