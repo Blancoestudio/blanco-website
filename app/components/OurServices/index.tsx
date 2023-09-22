@@ -1,10 +1,10 @@
 'use client'
 
 import React, { useState } from 'react'
+
 import ReactPlayer from 'react-player'
 
 import s from './styles.module.scss';
-import { log } from 'console';
 
 export const OurServices = () => {
 
@@ -87,7 +87,11 @@ export const OurServices = () => {
                 <div className="d-none d-md-block col-md-4">
 
                   <div className="sticky-top" style={{ top: 80 }}>
-                    <video className="react-player" loop autoPlay width={300}>
+                    {/* <ReactPlayer 
+                      url={'https://www.youtube.com/watch?v=LXb3EKWsInQ'} 
+                    /> */}
+
+                    <video className="react-player" loop autoPlay={true} width={300}>
                       <source src={videoURL} type="video/mp4" />
                       Tu navegador no soporta la reproducción de videos.
                     </video>
