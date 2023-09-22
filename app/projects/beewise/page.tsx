@@ -22,12 +22,12 @@ export default function Page() {
   const webImages = Array(3)
     .fill(0)
     .map((item, index) => {
-      return `/images/beeWise/Web/Beewise_web_${index + 1}.png`;
+      return `/images/beewise/Web/Beewise_web_${index + 1}.png`;
     });
   const appImages = Array(7)
     .fill(0)
     .map((item, index) => {
-      return `images/beeWise/App/Beewise_App_${index + 1}.png`;
+      return `images/beewise/App/Beewise_App_${index + 1}.png`;
     });
   return (
     <main className="bg-black">
