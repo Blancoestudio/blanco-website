@@ -13,7 +13,7 @@ export const AboutUs = () => {
               <div className={s["second-container"]}>
                 <div className={s["second-wrapper"]}>
                   <div className={s["second-header"]}>
-                    <h1 className="mb-3 karla">BLANCO TEAM</h1>
+                    <h1 className="header-title mb-3 karla text-center text-md-start">BLANCO TEAM</h1>
                   </div>
 
                   <div className={s["second-content"]}>
@@ -33,7 +33,7 @@ export const AboutUs = () => {
                      
                     </div>
 
-                    <div className={`${s["second-detail-container"]}`}>
+                    <div className={`${s["second-detail-container"]} text-center text-md-end`}>
                       Después de muchos años diseñando y desarrollando, hoy somos un laboratorio para implementar ideas y sueños en el mercado tecnológico, desde prototipos hasta productos escalables.
                     </div>
                   </div>

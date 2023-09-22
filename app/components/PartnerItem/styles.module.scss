@@ -69,13 +69,20 @@
 @media (max-width: 991.98px) {
 
   .partner-wrapper {
+    padding-right: 3em;
     .comment {
       padding-left: 0em;
       &.open {
         max-height: 50em;
       }
     }
+    .thumb-wrapper {
+      .picture-wrapper {
+        padding-left: 0;
+      }
+    }
   }  
+
 
 }
 // @media (max-width: 1199.98px) { ... }

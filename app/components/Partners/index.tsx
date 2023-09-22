@@ -63,7 +63,7 @@ export const Partners = () => {
     <div className="section py-5">
       <div className="container">
 
-        <h2 className={`${s['header']} karla text-white my-5 text-center text-md-start`}>NUESTROS<br/> PARTNERS</h2>
+        <h2 className={`header-title karla text-white my-5 text-center text-md-start`}>NUESTROS<br/> PARTNERS</h2>
 
         <div className="row justify-content-center">
           <div className="col-12 col-md-3">
