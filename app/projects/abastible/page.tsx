@@ -1,5 +1,7 @@
 "use client";
 
+import { basePath } from '../../../next.config.js';
+
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
 
@@ -17,12 +19,12 @@ export default function Page() {
   const webImages = Array(5)
     .fill(0)
     .map((item, index) => {
-      return `/images/Abastible/Web/Abastible_web_${index + 1}.png`;
+      return `/images/abastible/Web/Abastible_web_${index + 1}.png`;
     });
   const appImages = Array(6)
     .fill(0)
     .map((item, index) => {
-      return `/images/Abastible/App/Abastible_App_${index + 1}.png`;
+      return `/images/abastible/App/Abastible_App_${index + 1}.png`;
     });
   return (
     <main className="bg-black">
