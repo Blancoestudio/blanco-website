@@ -1,10 +1,14 @@
 "use client";
-import s from "./index.module.scss";
-import Carousel from "nuka-carousel";
+
+
+import { basePath } from '../../../next.config';
+
 import { useKeenSlider, KeenSliderPlugin } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import "./style.css";
 import Image from "next/image";
+
+import s from "./index.module.scss";
 
 const carousel: KeenSliderPlugin = (slider) => {
   const z = 300;
@@ -43,7 +47,7 @@ export default function AppImageCarousel(props: Props) {
       <div className="scene">
         <div className="carousel keen-slider" ref={sliderRef}>
           {images.map((item, index) => (
-            <Image src={item} fill={true} draggable="false" key={index} className="carousel__cell" alt={"scene-image"} />
+            <Image src={`${basePath}/${item}`}  fill={true} draggable="false" key={index} className="carousel__cell" alt={"scene-image"} />
             // <img draggable="false" src={item} key={index} width="100%" alt="" className="carousel__cell" />
           ))}
         </div>
