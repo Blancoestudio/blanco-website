@@ -32,18 +32,22 @@
     border-top: 1px solid #88888888;
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: stretch;
+    justify-content: stretch;
+    // padding: 2em 0;
     .left {
-      width: 100%;
+      width: 65%;
       min-height: 100%;
-      padding: 50px 0px 50px 50px;
+      padding: 2em;
+      // border: 1px solid red;
     }
     .right {
       border-left: 1px solid #88888888;
+      // padding: 0 2em;
       display: flex;
       flex-direction: column;;
       width: 30vw;
-      margin-left: 30px;
+      // margin-left: 30px;
       text-align: end;
       .item {
         padding: 40px 20px 40px 20px;

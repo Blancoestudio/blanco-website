@@ -1,25 +1,32 @@
+'use client';
+
 import React from 'react'
 
 import bg from "../../../assets/images/terramar.png";
 
 import Image from 'next/image';
 
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Autoplay } from 'swiper/modules';
+
+import 'swiper/css';
+import 'swiper/css/navigation';
+
 import s from './styles.module.scss';
 
 const page = () => {
 
   const images = Array(8)
-  .fill(0)
-  .map((item, index) => {
-    return `/images/Terramar/Web/Terramar_web_${index + 1}.png`;
-  });
+    .fill(0)
+    .map((item, index) => {
+      return `/images/Terramar/Web/Terramar_web_${index + 1}.png`;
+    });
 
   return (
     <div>
       <div className="cover-wrapper">
         <Image src={bg.src} fill={true} className="img-cover" alt={"image-background"} />
-        {/* <img className="img-cover" src={bg.src} alt="image-background" /> */}
-        <div className="container h-100">
+        <div className="container h-100 position-relative z-1">
           <div className="row h-100 justify-content-center align-items-end">
             <div className="col-11 mb-5">
               
@@ -47,7 +54,7 @@ const page = () => {
                   <p className="fs-5">Desarrollo de plataforma para Terramar Estados Unidos para seguimiento y control de importaciones y exportaciones de materia prima.</p>
                 </div>
                 <div>
-                  {/* <Swiper
+                  <Swiper
                     loop
                     autoplay
                     navigation
@@ -56,11 +63,17 @@ const page = () => {
                   >
                     {images.map((item: string | undefined, index: number) => (
                       <SwiperSlide key={index}>
-                        <Image src={item!} width={850} height={300} draggable="false" alt={"img"} />
-                        <img draggable="false" src={item} width="100%" alt="" /> 
+                        <Image 
+                          draggable="false"
+                          width={'675'}
+                          height={'375'}
+                          className={'border'}
+                          src={item!} 
+                          alt={"img"} 
+                          />
                       </SwiperSlide>
                     ))}
-                  </Swiper> */}
+                  </Swiper>
                 </div>
                 <div>
                   <p className="fs-5">Sistema de control y monitoreo de stocks, BL, trazabilidad inbound y outbound, control de embarques y documentación.</p>

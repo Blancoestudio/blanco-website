@@ -48,7 +48,7 @@ const page = () => {
       <div className="cover-wrapper">
         <Image src={bg.src} className="img-cover" fill={true} alt={"image-background"} />
         {/* <img className="img-cover" src={bg.src} alt="image-background" /> */}
-        <div className="container h-100">
+        <div className="container h-100 position-relative z-1">
           <div className="row h-100 justify-content-center align-items-end">
             <div className="col-11 mb-5">
               

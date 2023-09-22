@@ -1,10 +1,15 @@
 "use client";
 
-// import ImageCarousel from "../components/WebImageCarousel";
-// import AppImageCarousel from "../components/AppImageCarousel";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Autoplay } from 'swiper/modules';
+
+import 'swiper/css';
+import 'swiper/css/navigation';
 
 import bg from "assets/images/abastible.png";
 import Image from "next/image";
+
+import AppImageCarousel from '@/app/components/AppImageCarousel';
 
 import s from "./styles.module.scss";
 
@@ -23,7 +28,6 @@ export default function Page() {
     <main className="bg-black">
       <div className="cover-wrapper">
         <Image src={bg.src} fill={true} className="img-cover" alt={"image-background"} />
-        {/* <img className="img-cover" src={bg.src} alt="image-background" /> */}
         <div className="container h-100">
           <div className="row h-100 justify-content-center align-items-end">
             <div className="col-11 mb-5">
@@ -49,8 +53,30 @@ export default function Page() {
 
               <div className={s["container"]}>
                 <div className={s["webContent"]}>
-                  <div className={s["left"]}>
+                  <div className={`${s["left"]}`}>
                     {/* <ImageCarousel images={webImages} /> */}
+                    <div className="">
+                      <Swiper
+                        loop
+                        autoplay
+                        navigation
+                        slidesPerView={1}
+                        modules={[Navigation, Autoplay]}
+                      >
+                        {webImages.map((item: string | undefined, index: number) => (
+                          <SwiperSlide key={index}>
+                            <Image 
+                              draggable="false"
+                              width={'725'}
+                              height={'525'}
+                              className={'border'}
+                              src={item!} 
+                              alt={"img"} 
+                              />
+                          </SwiperSlide>
+                        ))}
+                      </Swiper>
+                    </div>
                   </div>
                   <div className={s["right"]}>
                     <div className={s["item"]}>
@@ -70,7 +96,7 @@ export default function Page() {
                     </div>
                   </div>
                   <div className={s["right"]}>
-                    {/* <AppImageCarousel images={appImages} />  */}
+                    <AppImageCarousel images={appImages} /> 
                   </div>
                 </div>
               </div>

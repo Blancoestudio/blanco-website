@@ -1435,6 +1435,11 @@ json5@^1.0.2:
     object.assign "^4.1.4"
     object.values "^1.1.6"
 
+keen-slider@^6.8.6:
+  version "6.8.6"
+  resolved "https://registry.yarnpkg.com/keen-slider/-/keen-slider-6.8.6.tgz#17bb7b219860f291a5ea5fde4496b737bf407a83"
+  integrity sha512-dcEQ7GDBpCjUQA8XZeWh3oBBLLmyn8aoeIQFGL/NTVkoEOsmlnXqA4QykUm/SncolAZYGsEk/PfUhLZ7mwMM2w==
+
 keyv@^4.5.3:
   version "4.5.3"
   resolved "https://registry.yarnpkg.com/keyv/-/keyv-4.5.3.tgz#00873d2b046df737963157bd04f294ca818c9c25"
@@ -1571,6 +1576,11 @@ normalize-path@^3.0.0, normalize-path@~3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/normalize-path/-/normalize-path-3.0.0.tgz#0dcd69ff23a1c9b11fd0978316644a0388216a65"
   integrity sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==
+
+nuka-carousel@^6.0.3:
+  version "6.0.3"
+  resolved "https://registry.yarnpkg.com/nuka-carousel/-/nuka-carousel-6.0.3.tgz#75ecbf5d3a8f538e84f53d220c3092abc56335ef"
+  integrity sha512-DYxCTp4xIv9/vfrfOr9FAmYizMr7AefL7mbqsBaBTwdrZ77mAsR/SNZtk+/KHJSuH+9gZLrugj/RC6qM8MJr+Q==
 
 object-assign@^4.1.1:
   version "4.1.1"

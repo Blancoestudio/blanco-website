@@ -14,6 +14,7 @@ import s from "./styles.module.scss";
 import 'swiper/css';
 import 'swiper/css/navigation';
 import Image from "next/image";
+import AppImageCarousel from "@/app/components/AppImageCarousel";
 
 export default function Page() {
   const webImages = Array(3)
@@ -31,7 +32,7 @@ export default function Page() {
       <div className="cover-wrapper">
         <Image src={bg.src} fill={true} className="img-cover" alt={"image-background"} />
         {/* <img className="img-cover" src={bg.src} alt="image-background" /> */}
-        <div className="container h-100">
+        <div className="container h-100 position-relative z-1">
           <div className="row h-100 justify-content-center align-items-end">
             <div className="col-11 mb-5">
               
@@ -69,8 +70,7 @@ export default function Page() {
                   >
                     {webImages.map((item: string | undefined, index: number) => (
                       <SwiperSlide key={index}>
-                        <Image src={item!} width={850} height={300} draggable="false" alt={"img"} />
-                        {/* <img draggable="false" src={item} width="100%" alt="" /> */}
+                        <Image src={item!} width={850} height={575} draggable="false" alt={"img"} />
                       </SwiperSlide>
                     ))}
                   </Swiper>
@@ -82,7 +82,7 @@ export default function Page() {
 
               <div className="row align-items-center pt-5">
                 <div className="col-12 col-md-6 mb-5 mb-md-0">
-                  {/* <AppImageCarousel images={appImages} /> */}
+                  <AppImageCarousel images={appImages} />
                 </div>
                 <div className="col-12 col-md-5">
                   <p className="fs-4">Es un juego de desafíos con preguntas de selección múltiple. La dinámica consiste en que cada jugador debe desafiar a un oponente del equipo rival y el mejor de 5 preguntas aleatorias gana el desafío.</p>

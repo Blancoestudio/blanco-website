@@ -26,7 +26,7 @@ const page = () => {
       <div className="cover-wrapper">
         <Image src={bg.src} className="img-cover" fill={true} alt={"image-background"} />
         {/* <img className="img-cover" src={bg.src} alt="image-background" /> */}
-        <div className="container h-100">
+        <div className="container h-100 position-relative z-1">
           <div className="row h-100 justify-content-center align-items-end">
             <div className="col-11 mb-5">
               
@@ -54,7 +54,7 @@ const page = () => {
                   <p className="fs-5">Se desarrolla una plataforma que permite un mejor control, seguimiento y gestión de operaciones, pudiendo monitorear los tiempos de facturación, y envío de informes. Generando una plataforma ágil y amigable para el usuario.</p>
                 </div>
                 <div>
-                  <Swiper
+                  {/* <Swiper
                       loop
                       autoplay
                       navigation
@@ -64,7 +64,27 @@ const page = () => {
                     {images.map((item: string | undefined, index: number) => (
                       <SwiperSlide key={index}>
                         <Image src={item!} width={850} height={300} draggable="false" alt={"img"} />
-                        {/* <img draggable="false" src={item} width="100%" alt="" /> */}
+                        <img draggable="false" src={item} width="100%" alt="" />
+                      </SwiperSlide>
+                    ))}
+                  </Swiper> */}
+                  <Swiper
+                    loop
+                    autoplay
+                    navigation
+                    slidesPerView={1}
+                    modules={[Navigation, Autoplay]}
+                  >
+                    {images.map((item: string | undefined, index: number) => (
+                      <SwiperSlide key={index}>
+                        <Image 
+                          draggable="false"
+                          width={'675'}
+                          height={'375'}
+                          className={'border'}
+                          src={item!} 
+                          alt={"img"} 
+                          />
                       </SwiperSlide>
                     ))}
                   </Swiper>
