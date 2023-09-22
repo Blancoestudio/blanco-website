@@ -19,12 +19,12 @@ export default function Page() {
   const webImages = Array(5)
     .fill(0)
     .map((item, index) => {
-      return `/images/abastible/Web/Abastible_web_${index + 1}.png`;
+      return `/abastible/Web/Abastible_web_${index + 1}.png`;
     });
   const appImages = Array(6)
     .fill(0)
     .map((item, index) => {
-      return `/images/abastible/App/Abastible_App_${index + 1}.png`;
+      return `/abastible/App/Abastible_App_${index + 1}.png`;
     });
   return (
     <main className="bg-black">
