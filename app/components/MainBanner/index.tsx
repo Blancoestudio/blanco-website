@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { gsap } from "gsap";
+
 import s from './styles.module.scss';
 
 export const MainBanner = () => {

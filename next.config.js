@@ -6,7 +6,10 @@ const nextConfig = {
   output: isProd ? 'export' : 'standalone',
   basePath: isProd ? '/blanco-website' : '',
   images: {
-    unoptimized: true
+    unoptimized: true,
+  },
+  env: {
+    NEXT_PUBLIC_SITE_URL: 'https://derkysan.github.io/blanco-website/',
   },
 }
 

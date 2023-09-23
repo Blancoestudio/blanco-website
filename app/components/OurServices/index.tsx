@@ -2,8 +2,6 @@
 
 import React, { useEffect, useRef, useState } from 'react'
 
-import { basePath } from '../../../next.config';
-
 import ReactPlayer from 'react-player'
 
 import s from './styles.module.scss';
