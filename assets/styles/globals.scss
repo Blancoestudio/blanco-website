@@ -126,6 +126,16 @@ $theme-colors: (
 
 // Then add additional custom code here
 
+html {
+  touch-action: manipulation; /* Desactiva el zoom en dispositivos táctiles */
+  user-select: none; /* Evita la selección de texto en dispositivos táctiles */
+  overflow: hidden; /* Evita que el contenido se desplace horizontalmente en algunos dispositivos móviles */
+  -ms-text-size-adjust: 100%; /* Desactiva el ajuste de tamaño de texto en Internet Explorer */
+  -webkit-text-size-adjust: 100%; /* Desactiva el ajuste de tamaño de texto en Webkit (Safari) */
+  text-size-adjust: 100%; /* Desactiva el ajuste de tamaño de texto en navegadores modernos */
+}
+
+
 body {
   font-family: var(--font-nunito) !important;
 }
