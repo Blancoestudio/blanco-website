@@ -16,23 +16,23 @@ export const metadata: Metadata = {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",
   },
-  // twitter: {
-  //   card: "summary_large_image",
-  //   creator: "@blanco",
-  //   description: "Blanco",
-  //   images: [{ width: 1200, height: 630, url: `${siteOrigin}/og.jpg` }],
-  //   site: "@basementstudio",
-  //   title: "Blanco",
-  // },
-  // openGraph: {
-  //   description: "Blanco",
-  //   images: [{ width: 1200, height: 630, url: `${siteOrigin}/og.jpg` }],
-  //   locale: "en-US",
-  //   siteName: "Blanco",
-  //   title: "Blanco",
-  //   type: "website",
-  //   url: siteOrigin,
-  // },
+  twitter: {
+    card: "summary_large_image",
+    creator: "@blanco",
+    description: "Blanco",
+    images: [{ width: 1200, height: 630, url: `${siteOrigin}/blanco.png` }],
+    site: "@",
+    title: "Blanco",
+  },
+  openGraph: {
+    description: "Blanco",
+    images: [{ width: 1200, height: 630, url: `${siteOrigin}/blanco.png` }],
+    locale: "en-US",
+    siteName: "Blanco",
+    title: "Blanco",
+    type: "website",
+    url: siteOrigin,
+  },
 }
 
 // export const metadata: Metadata = {
