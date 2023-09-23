@@ -1,19 +1,24 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
+
+import { basePath } from '../../../next.config';
 
 import ReactPlayer from 'react-player'
 
 import s from './styles.module.scss';
-import { Autoplay } from 'swiper/modules';
 
 export const OurServices = () => {
 
-  const [videoURL, setVideoURL] = useState('videos/01.mp4')
+  const [isPlayerReady, setIsPlayerReady] = useState(false);
+  const [videoURL, setVideoURL] = useState<string>('videos/01.mp4');
+  const playerRef = useRef<ReactPlayer | null>(null);
+  const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     // Código para interactuar con react-player u otras bibliotecas aquí
-  }, []);
+    setIsPlayerReady(true);
+  }, [videoURL]);
 
   // let previewUrl = "videos/01.mp4";
   let data = [
@@ -58,10 +63,27 @@ export const OurServices = () => {
     },
   ];
 
-  const onHover = (item: any) => {
-    setVideoURL(item.preview);
-    // let player = document.querySelector(".react-player > video");
-    // player?.setAttribute("src", item.preview);
+  const handleHover = (item: any) => {
+    if (playerRef.current) {
+      if (isPlayerReady) {
+        // Cancelar el timeout anterior si existe
+        if (hoverTimeoutRef.current) {
+          clearTimeout(hoverTimeoutRef.current);
+        }
+        
+        // Establecer un nuevo timeout para cambiar el video después de 500 ms (ajusta esto según tus necesidades)
+        hoverTimeoutRef.current = setTimeout(() => {
+          setVideoURL(item.preview);
+        }, 150);
+      }
+    }
+  };
+
+  const handleMouseOut = () => {
+    // Cancelar el timeout cuando se quita el mouse
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current);
+    }
   };
 
   return (
@@ -90,34 +112,21 @@ export const OurServices = () => {
                 <div className="d-none d-md-block col-md-4">
 
                   <div className={`${s['player']} sticky-top`} >
-                    <ReactPlayer 
-                      playing={true}
-                      loop={true}
-                      width='100%'
-                      height={300}
-                      url={videoURL} 
-                    />
-
-                    {/* <video className="react-player" loop autoPlay={true} width={300}>
-                      <source src={videoURL} type="video/mp4" />
-                      Tu navegador no soporta la reproducción de videos.
-                    </video> */}
-                    {/* <ReactPlayer
-                      className="react-player"
-                      url={previewUrl}
-                      muted
-                      loop
-                      playing
-                      width={"fit-content"}
-                      height={"fit-content"}
-                      config={{
-                        file: {
-                          attributes: {
-                            controlsList: "nodownload",
-                          },
-                        },
-                      }}
-                    /> */}
+                    {
+                      isPlayerReady 
+                        ? (
+                            <ReactPlayer 
+                              width='100%'
+                              height={300}
+                              playing={true}
+                              loop={true}
+                              ref={playerRef}
+                              url={videoURL} 
+                              onReady={() => setIsPlayerReady(true)}
+                            /> 
+                          )
+                          : (<code className='w-100 h-100 text-center'>Loading...</code>)
+                        } 
                   </div>
 
                 </div>
@@ -125,23 +134,25 @@ export const OurServices = () => {
 
                   <div className={s["list-container"]}>
                     {data.map((item, index) => {
-                      let aniStart = index * 10;
-                      let aniEnd = aniStart + 50;
-                      if (aniStart < 0) {
-                        aniStart = 0;
-                      }
-                      if (aniEnd < 0) {
-                        aniEnd = 0;
-                      }
-                      let xStart = aniStart * 0.5;
-                      let opStart = 1 - aniEnd / 100;
+                      // let aniStart = index * 10;
+                      // let aniEnd = aniStart + 50;
+                      // if (aniStart < 0) {
+                      //   aniStart = 0;
+                      // }
+                      // if (aniEnd < 0) {
+                      //   aniEnd = 0;
+                      // }
+                      // let xStart = aniStart * 0.5;
+                      // let opStart = 1 - aniEnd / 100;
 
                       return (
                         <div
                           key={index}
-                          onMouseEnter={() => {
-                            onHover(item);
-                          }}
+                          // onMouseEnter={() => {
+                          //   onHover(item);
+                          // }}
+                          onMouseOver={() => handleHover(item)}
+                          onMouseOut={handleMouseOut}
                         >
                           <div className={s["list-item"]}>
                             <div className={s["list-item-id"]}>
