@@ -8,6 +8,7 @@ import { Footer } from '../components/Footer';
 import { karla, nunito } from '@/assets/fonts';
 
 import '../assets/styles/globals.scss'
+import { basePath } from '@/next.config';
 
 export const metadata: Metadata = {
   title: 'Blanco',
@@ -20,13 +21,13 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     creator: "@blanco",
     description: "Blanco",
-    images: [{ width: 1200, height: 630, url: `${siteOrigin}/blanco.png` }],
+    images: [{ width: 1200, height: 630, url: `${siteOrigin}/${basePath}/blanco.png` }],
     site: "@",
     title: "Blanco",
   },
   openGraph: {
     description: "Blanco",
-    images: [{ width: 1200, height: 630, url: `${siteOrigin}/blanco.png` }],
+    images: [{ width: 1200, height: 630, url: `${siteOrigin}/${basePath}/blanco.png` }],
     locale: "en-US",
     siteName: "Blanco",
     title: "Blanco",
