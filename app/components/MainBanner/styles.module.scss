@@ -6,15 +6,24 @@
   }
 }
 
+.title-line-1 {
+  // opacity: 0;
+  // top: 2em;
+}
+
 .video {
   position: absolute;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
-  object-fit: cover;
-  object-position: center;
   z-index: -1;
+  video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
 }
 
 // @media (max-width: 575.98px) { ... }

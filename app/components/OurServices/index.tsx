@@ -114,6 +114,7 @@ export const OurServices = () => {
                       isPlayerReady 
                         ? (
                             <ReactPlayer 
+                              muted
                               width='100%'
                               height={300}
                               playing={true}
