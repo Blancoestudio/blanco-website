@@ -11,28 +11,44 @@ import '../assets/styles/globals.scss'
 import { basePath } from '@/next.config';
 
 export const metadata: Metadata = {
-  title: 'Blanco',
+  title: {
+    default: 'Blanco',
+    template: 'Blanco | %s',
+  },
   description: 'Estudio de tecnología e innovación.',
+  keywords: ['Tecnología', 'Innovación', 'Diseño', 'Agencia'],
+  metadataBase: new URL(`${siteOrigin}`),
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
+  },
+  openGraph: {
+    title: 'Blanco',
+    description: 'Estudio de tecnología e innovación.',
+    siteName: "Blanco",
+    url: siteOrigin,
+    locale: "en-US",
+    type: "website",
+    images: [
+      { 
+        width: 1200, 
+        height: 630, 
+        url: `${siteOrigin}${basePath}/blanco.png` }
+    ],
   },
   twitter: {
     card: "summary_large_image",
+    title: "Blanco",
+    description: 'Estudio de tecnología e innovación.',
     creator: "@blanco",
-    description: "Blanco",
-    images: [{ width: 1200, height: 630, url: `${siteOrigin}${basePath}/blanco.png` }],
-    site: "@",
-    title: "Blanco",
-  },
-  openGraph: {
-    description: "Blanco",
-    images: [{ width: 1200, height: 630, url: `${siteOrigin}${basePath}/blanco.png` }],
-    locale: "en-US",
-    siteName: "Blanco",
-    title: "Blanco",
-    type: "website",
-    url: siteOrigin,
+    images: [
+      { 
+        width: 1200, 
+        height: 630, 
+        url: `${siteOrigin}${basePath}/blanco.png` 
+      }
+    ],
   },
 }
 

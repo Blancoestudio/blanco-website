@@ -3,12 +3,8 @@
   position: relative;
   h1 {
     font-size: 7em;
+    line-height: 1.3em;
   }
-}
-
-.title-line-1 {
-  // opacity: 0;
-  // top: 2em;
 }
 
 .video {
@@ -24,6 +20,16 @@
     object-fit: cover;
     object-position: center;
   }
+}
+
+.loader {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba($color: #000000, $alpha: 1.0);
+  z-index: 10;
 }
 
 // @media (max-width: 575.98px) { ... }

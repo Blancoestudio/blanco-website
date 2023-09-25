@@ -97,7 +97,7 @@ export const Portfolio = () => {
   ];
 
   return (
-    <div className="section full">
+    <div id="portfolioSection" className="section full">
 
         <div className={`${s["wrapper-slider"]}`}>
           <Swiper

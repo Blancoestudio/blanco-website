@@ -4,7 +4,7 @@ import s from './styles.module.scss';
 
 export const Mision = () => {
   return (
-    <div className="section py-5">
+    <div id="misionSection" className="section py-5">
       <div className="container">
         <div className="row">
           <div className="col">

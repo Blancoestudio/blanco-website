@@ -85,7 +85,7 @@ export const OurServices = () => {
   };
 
   return (
-    <div className="section py-5">
+    <div id="ourServiceSection" className="section py-5">
       <div className="container">
         <div className="row">
           <div className="col">

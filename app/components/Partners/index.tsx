@@ -60,7 +60,7 @@ export const Partners = () => {
   }
 
   return (
-    <div className="section py-5">
+    <div id="partnerSection" className="section py-5">
       <div className="container">
 
         <h2 className={`header-title karla text-white my-5 text-center text-md-start`}>NUESTROS<br/> PARTNERS</h2>

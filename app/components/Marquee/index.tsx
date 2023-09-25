@@ -4,7 +4,7 @@ import s from './styles.module.scss';
 
 export const Marquee = () => {
   return (
-    <div className="section full">
+    <div id="marqueeSection" className="section full">
       {/* <div className="container h-100"> */}
         {/* <div className="row h-100 align-items-center"> */}
           {/* <div className="col"> */}

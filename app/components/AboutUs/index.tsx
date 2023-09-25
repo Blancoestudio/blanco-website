@@ -1,11 +1,70 @@
-import React from 'react'
+'use client'
+
+import React, { useEffect } from 'react'
 
 import s from './styles.module.scss';
-import router from 'next/router';
+
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
 
 export const AboutUs = () => {
+  
+  
+  useEffect(() => {
+    
+    // gsap.from('.text-line-2', {
+      //   y: '1.5em',
+      //   overflow: 'hidden'
+      // })
+      
+    if (typeof window !== 'undefined') {
+      gsap.registerPlugin(ScrollTrigger);
+
+      gsap.fromTo('.text-line-2', {
+            
+            y: '100%',
+          }, {
+            scrollTrigger: {
+              trigger: '#aboutUsSection',
+              start: 'top center',
+              end: 'bottom 85%',
+              toggleActions: "restart reverse restart reverse",
+              // markers: true,
+              // pin: "#aboutUsSection",
+              // scrub: true
+            },
+            duration: .75,
+            y: 0,
+          })
+
+    }
+    
+  //   gsap.to('.text-line-2', {
+  //     scrollTrigger: {
+  //       trigger: '#aboutUsSection',
+  //       start: 'top center',
+  //       end: 'bottom 85%',
+  //       toggleActions: "restart reverse restart reverse",
+  //       markers: true,
+  //       // pin: "#aboutUsSection",
+  //       // scrub: true
+  //     },
+  //     y: 0,
+  //     duration: .5,
+  //     overflow: 'hidden',
+  //     // duration: 3,
+  //     // delay: 1,
+  //     // opacity: 1,
+  //     // overflow: 'hidden',
+  //     // stagger: .35
+  //   });
+    
+  }, [])
+  
+
   return (
-    <div className="section full bg-white text-black">
+    <div id="aboutUsSection" className="section full bg-white text-black border border-danger">
       <div className="container h-100">
         <div className="row h-100 align-items-center">
           <div className="col">
@@ -13,7 +72,11 @@ export const AboutUs = () => {
               <div className={s["second-container"]}>
                 <div className={s["second-wrapper"]}>
                   <div className={s["second-header"]}>
-                    <h1 className="header-title mb-3 karla text-center text-md-start">BLANCO TEAM</h1>
+                    <h1 className="header-title karla text-center text-md-start overflow-hidden mb-0">
+                      <div className="d-block text-line-2">
+                        BLANCO TEAM
+                      </div>
+                    </h1>
                   </div>
 
                   <div className={s["second-content"]}>

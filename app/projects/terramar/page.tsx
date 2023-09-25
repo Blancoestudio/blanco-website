@@ -1,6 +1,4 @@
-'use client';
-
-import React from 'react'
+'use client'
 
 import { basePath } from '../../../next.config.js';
 
