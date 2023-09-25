@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 
 import s from './styles.module.scss';
 
@@ -9,6 +9,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 
 export const AboutUs = () => {
+
+  const aboutUsSectionRef = useRef(null)
   
   
   useEffect(() => {
@@ -22,20 +24,18 @@ export const AboutUs = () => {
       gsap.registerPlugin(ScrollTrigger);
 
       gsap.fromTo('.text-line-2', {
-            
             y: '100%',
+            opacity: 0,
           }, {
             scrollTrigger: {
               trigger: '#aboutUsSection',
-              start: 'top center',
-              end: 'bottom 85%',
+              start: 'top 33.3%',
               toggleActions: "restart reverse restart reverse",
-              // markers: true,
-              // pin: "#aboutUsSection",
-              // scrub: true
             },
-            duration: .75,
             y: 0,
+            opacity: 1,
+            stagger: .25,
+            duration: .75,
           })
 
     }
@@ -64,7 +64,7 @@ export const AboutUs = () => {
   
 
   return (
-    <div id="aboutUsSection" className="section full bg-white text-black border border-danger">
+    <div ref={aboutUsSectionRef} id="aboutUsSection" className="section full bg-white text-black">
       <div className="container h-100">
         <div className="row h-100 align-items-center">
           <div className="col">
@@ -96,8 +96,10 @@ export const AboutUs = () => {
                      
                     </div>
 
-                    <div className={`${s["second-detail-container"]} text-center text-md-end`}>
-                      Después de muchos años diseñando y desarrollando, hoy somos un laboratorio para implementar ideas y sueños en el mercado tecnológico, desde prototipos hasta productos escalables.
+                    <div className={`${s["second-detail-container"]} text-center text-md-end overflow-hidden`}>
+                      <div className="d-block text-line-2">
+                        Después de muchos años diseñando y desarrollando, hoy somos un laboratorio para implementar ideas y sueños en el mercado tecnológico, desde prototipos hasta productos escalables.
+                      </div>
                     </div>
                   </div>
                 </div>

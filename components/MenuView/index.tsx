@@ -1,9 +1,12 @@
 "use client";
 import Link from "next/link";
-import Image from "next/image";
 
 // import { LogoBasement } from "../logos/logo";
 import s from "./styles.module.scss";
+import { SyntheticEvent, useEffect, useRef } from "react";
+import gsap from "gsap";
+import ScrollToPlugin from "gsap/ScrollToPlugin";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 interface Props {
   menuViewOpen: boolean,
@@ -11,6 +14,18 @@ interface Props {
 }
 
 export default function MenuView({ menuViewOpen, setMenuViewOpen } : Props) {
+
+  const aboutUsSectionRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
+  }, [])
+
+  const goTo = (e: SyntheticEvent) => {
+    console.log(e);
+    aboutUsSectionRef.current!.scrollIntoView({ behavior: 'smooth' });
+  }
+  
 
   return (
     <div className={`${s["menu-view-wrapper"]} ${ menuViewOpen ? s["show"] : s["hide"] } text-white`}>
@@ -101,7 +116,7 @@ export default function MenuView({ menuViewOpen, setMenuViewOpen } : Props) {
                           <Link className="text-white text-decoration-none karla" href={'/'} onClick={ () => setMenuViewOpen(false) }>Home</Link>
                         </li>
                         <li>
-                          <Link className="text-white text-decoration-none karla" href={'/#services'} onClick={ () => setMenuViewOpen(false) }>Servicio</Link>
+                          <Link className="text-white text-decoration-none karla" href={'/#ourServiceSection'} onClick={ () => setMenuViewOpen(false) }>Servicio</Link>
                         </li>
                         <li>
                           <Link className="text-white text-decoration-none karla" href={'/#portfolio'} onClick={ () => setMenuViewOpen(false) }>Portafolio</Link>
@@ -116,10 +131,12 @@ export default function MenuView({ menuViewOpen, setMenuViewOpen } : Props) {
 
                       <ul className={`${s["secondary-menu"]} fs-4 fw-medium karla`}>
                         <li>
-                          <Link href={'/#team'} className="text-white  text-decoration-none" onClick={ () => setMenuViewOpen(false) }>Equipo</Link>
+                          {/* <Link href={'/#team'} className="text-white  text-decoration-none" onClick={ () => setMenuViewOpen(false) }>Equipo</Link> */}
+                          <a href={'/#team'} className="text-white  text-decoration-none" onClick={ () => setMenuViewOpen(false) }>Equipo</a>
                         </li>
                         <li>
-                          <Link href={'/#mision'} className="text-white  text-decoration-none" onClick={ () => setMenuViewOpen(false) }>Misión</Link>
+                          {/* <Link href={'/#mision'} className="text-white  text-decoration-none" onClick={ () => setMenuViewOpen(false) }>Misión</Link> */}
+                          <a href={'/#misionSection'} className="text-white  text-decoration-none" onClick={ () => setMenuViewOpen(false) }>Misión</a>
                         </li>
                         <li>
                           <Link href={'/#values'} className="text-white  text-decoration-none" onClick={ () => setMenuViewOpen(false) }>Principios</Link>
@@ -135,88 +152,6 @@ export default function MenuView({ menuViewOpen, setMenuViewOpen } : Props) {
         </div>
 
       </div>
-
-
-
-      {/* <div className={s["menu-header-wrapper"]}>
-        <div className={s["container"]}>
-          <Link href={"/"}>
-            <LogoBasement />
-          </Link>
-          <button 
-            style={{ 
-              display: 'flex', 
-              alignItems: 'center', 
-              gap: '1em' 
-            }}
-            onClick={ () => setMenuViewOpen(false) }>
-            <span style={{ fontSize: '12px' }}>Menú</span> X
-          </button>
-        </div>
-      </div>
-
-      <div className={s["menu-content-wrapper"]}>
-        <div className={s["container"]}>
-          <div className={s["left"]}>
-            <div className={s["item"]}>
-              <h4 style={{ fontSize: '1.25em', fontWeight: 'bold', color: '#98A5B1', lineHeight: '1em' }}>E-mail</h4>
-              <a href="mailto:info@blanco-brand.com" style={{ fontSize: '1.5em', fontWeight: 'bold' }}>info@blanco-brand.com</a>
-            </div>
-
-            <div className={s["item"]}>
-              <h4 style={{ fontSize: '1.25em', fontWeight: 'bold', color: '#98A5B1', lineHeight: '1em' }}>Ubicación</h4>
-              <p style={{ fontSize: '1.5em', fontWeight: 'bold' }}>Santiago, Chile</p>
-            </div>
-
-            <div className={s["contactbox"]}>
-              <p style={{ fontSize: '1.5em', fontWeight: 'bold', marginBottom: '.5em' }}>¿Alguna pregunta? Felices te ayudamos</p>
-              <MyGradientButton onClick={() => {}}>
-                <div className={`${nunito.className}`} style={{ 
-                  display: 'flex', 
-                  alignItems: 'center', 
-                  fontSize: '20px'
-                  }}>
-                  Contáctanos
-                  <Image src="/images/arrow-up-right.png" alt="My Image" width={25} height={25} style={{ marginLeft: '1em' }} />
-                </div>
-              </MyGradientButton>
-            </div>
-          </div>
-
-          <div className={s["right"]}>
-            <div className={s["menu-wrapper"]}>
-              <ul className={s["primary-menu"]}>
-                <li>
-                  <Link href={'/'} onClick={ () => setMenuViewOpen(false) }>Home</Link>
-                </li>
-                <li>
-                  <Link href={'/#services'} onClick={ () => setMenuViewOpen(false) }>Servicio</Link>
-                </li>
-                <li>
-                  <Link href={'/#portfolio'} onClick={ () => setMenuViewOpen(false) }>Portafolio</Link>
-                </li>
-                <li>
-                  <Link href={'/#contact'} onClick={ () => setMenuViewOpen(false) }>Contacto</Link>
-                </li>
-                <li>
-                  <Link href={'/#about'} onClick={ () => setMenuViewOpen(false) }>Nosotros</Link>
-                </li>
-              </ul>
-              <ul className={s["secondary-menu"]}>
-                <li>
-                  <Link href={'/#team'} onClick={ () => setMenuViewOpen(false) }>Equipo</Link>
-                </li>
-                <li>
-                  <Link href={'/#mision'} onClick={ () => setMenuViewOpen(false) }>Misión</Link>
-                </li>
-                <li>
-                  <Link href={'/#values'} onClick={ () => setMenuViewOpen(false) }>Principios</Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div> */}
 
     </div>
   );

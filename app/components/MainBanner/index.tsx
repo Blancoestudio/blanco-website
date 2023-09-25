@@ -54,10 +54,16 @@ export const MainBanner = () => {
         opacity: 0,
         yPercent: 100,
       }, {
+        scrollTrigger: {
+          trigger: '.text-line',
+          start: 'top bottom',
+          end: 'bottom top',
+          toggleActions: "restart reverse restart reverse",
+        },
         opacity: 1,
         yPercent: 0,
         stagger: .25,
-        delay: 1,
+        delay: .5,
         duration: .5
       })
 
@@ -157,7 +163,7 @@ export const MainBanner = () => {
                 //   />
                 <div className="w-100 h-100"
                   dangerouslySetInnerHTML={{
-                    __html: `<video loop muted autoPlay>
+                    __html: `<video loop muted autoPlay playsinline>
                               <source src="${bgVideo}" type="video/mp4" />
                             </video>`
                   }}>
