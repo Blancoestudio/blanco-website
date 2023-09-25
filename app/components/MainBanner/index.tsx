@@ -155,26 +155,20 @@ export const MainBanner = () => {
                 //   url={bgVideo} 
                 //   onReady={() => setIsPlayerReady(true)}
                 //   />
-                // <div
-                //   dangerouslySetInnerHTML={{
-                //     __html: `
-                //       <video 
-                //         loop
-                //         muted
-                //         autoPlay
-                //         >
-                //         <source src={bgVideo} type="video/mp4" />
-                //       </video>
-                //     `
-                //   }}>
-                // </div>
-                  <video 
-                    loop
-                    muted
-                    autoPlay
-                    >
-                    <source src={bgVideo} type="video/mp4" />
-                  </video>
+                <div className="w-100 h-100"
+                  dangerouslySetInnerHTML={{
+                    __html: `<video loop muted autoPlay>
+                              <source src="${bgVideo}" type="video/mp4" />
+                            </video>`
+                  }}>
+                </div>
+                  // <video 
+                  //   loop
+                  //   muted
+                  //   autoPlay
+                  //   >
+                  //   <source src={bgVideo} type="video/mp4" />
+                  // </video>
               ) : null
           }
         </div>
