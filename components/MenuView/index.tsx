@@ -1,4 +1,5 @@
 "use client";
+
 import Link from "next/link";
 
 import { useEffect, useRef } from "react";
@@ -12,7 +13,7 @@ import s from "./styles.module.scss";
 import MotionPathPlugin from "gsap/MotionPathPlugin";
 
 import { basePath } from "@/next.config";
-import { useRouter } from "next/router";
+import { useRouter } from 'next/navigation'
 
 interface Props {
   menuViewOpen: boolean,
@@ -62,7 +63,7 @@ const secondaryMenu = [
 export default function MenuView({ menuViewOpen, setMenuViewOpen } : Props) {
 
   const menuViewRef = useRef(null);
-  const router = useRouter()
+  const router = useRouter();
   
   useEffect(() => {
     gsap.registerPlugin(ScrollToPlugin, ScrollTrigger, MotionPathPlugin);
@@ -150,7 +151,7 @@ export default function MenuView({ menuViewOpen, setMenuViewOpen } : Props) {
     // const anchorText =  idSection.split('#')[1]
     // const el: any = document.querySelector('#' + anchorText);
     // el.scrollIntoView({ behavior: 'smooth' });
-    router.push(`/dashboard${idSection}`);
+    router.push(`/dashboard${idSection}`, { scroll: true })
     closeMenu();
   }
 
