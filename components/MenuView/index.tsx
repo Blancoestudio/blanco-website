@@ -145,11 +145,9 @@ export default function MenuView({ menuViewOpen, setMenuViewOpen } : Props) {
   }
 
   const handleMenuLink = (idSection: string) => {
-    console.log(idSection);
     
     const anchorText =  idSection.split('#')[1]
     const el: any = document.querySelector('#' + anchorText);
-    console.log(el);
     
     el.scrollIntoView({ behavior: 'smooth' });
     closeMenu();
@@ -238,7 +236,7 @@ export default function MenuView({ menuViewOpen, setMenuViewOpen } : Props) {
                                 <li key={i} className="overflow-hidden">
                                   <div className="anim-line-2">
                                     <Link 
-                                      href={`${item.url}`}
+                                      href={`/${item.url}`}
                                       className="text-white text-decoration-none karla"
                                       onClick={() => handleMenuLink(item.url)}>
                                         { item.name }
@@ -255,7 +253,7 @@ export default function MenuView({ menuViewOpen, setMenuViewOpen } : Props) {
                               <li key={i} className="overflow-hidden">
                                 <div className="anim-line-2">
                                   <Link 
-                                    href={item.url} 
+                                    href={`${item.url}`} 
                                     className="text-white  text-decoration-none" 
                                     onClick={ () => handleMenuLink(item.url) }>
                                       { item.name }
