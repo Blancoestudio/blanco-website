@@ -145,19 +145,10 @@ export default function MenuView({ menuViewOpen, setMenuViewOpen } : Props) {
   }
 
   const handleMenuLink = (idSection: string) => {
-
-    console.log({idSection});
     const anchorText =  idSection.split('#')[1]
-    console.log({anchorText});
     const el: any = document.querySelector('#' + anchorText);
-    console.log(el);
-    
     el.scrollIntoView({ behavior: 'smooth' });
-    
     closeMenu();
-    
-    
-    
   }
 
   return (
