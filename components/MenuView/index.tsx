@@ -87,7 +87,7 @@ export default function MenuView({ menuViewOpen, setMenuViewOpen } : Props) {
           opacity: 1,
           zIndex: 9999,
           ease: 'power2',
-          delay: .25
+          delay: .5
         })
 
       gsap.to('.anim-line-1', {
@@ -145,11 +145,13 @@ export default function MenuView({ menuViewOpen, setMenuViewOpen } : Props) {
   }
 
   const handleMenuLink = (idSection: string) => {
-    // console.log(idSection);
+    console.log(idSection);
     
-    // const anchorText =  idSection.split('#')[1]
-    // const el: any = document.querySelector('#' + anchorText);
-    // el.scrollIntoView({ behavior: 'smooth' });
+    const anchorText =  idSection.split('#')[1]
+    const el: any = document.querySelector('#' + anchorText);
+    console.log(el);
+    
+    el.scrollIntoView({ behavior: 'smooth' });
     closeMenu();
   }
 
@@ -235,12 +237,12 @@ export default function MenuView({ menuViewOpen, setMenuViewOpen } : Props) {
                               mainMenu.map( (item, i) => (
                                 <li key={i} className="overflow-hidden">
                                   <div className="anim-line-2">
-                                    <a 
-                                      href={item.url}
+                                    <Link 
+                                      href={`${item.url}`}
                                       className="text-white text-decoration-none karla"
                                       onClick={() => handleMenuLink(item.url)}>
                                         { item.name }
-                                    </a>
+                                    </Link>
                                   </div>
                                 </li>
                               ))
@@ -252,11 +254,12 @@ export default function MenuView({ menuViewOpen, setMenuViewOpen } : Props) {
                             secondaryMenu.map( (item, i) => (
                               <li key={i} className="overflow-hidden">
                                 <div className="anim-line-2">
-                                  <a 
+                                  <Link 
                                     href={item.url} 
-                                    className="text-white  text-decoration-none">
+                                    className="text-white  text-decoration-none" 
+                                    onClick={ () => handleMenuLink(item.url) }>
                                       { item.name }
-                                  </a>
+                                  </Link>
                                 </div>
                               </li>
                             ))
