@@ -11,6 +11,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import s from "./styles.module.scss";
 import MotionPathPlugin from "gsap/MotionPathPlugin";
 
+import { basePath } from "@/next.config";
+
 interface Props {
   menuViewOpen: boolean,
   setMenuViewOpen: React.Dispatch<React.SetStateAction<boolean>>
@@ -85,7 +87,7 @@ export default function MenuView({ menuViewOpen, setMenuViewOpen } : Props) {
           opacity: 1,
           zIndex: 9999,
           ease: 'power2',
-          delay: .5
+          delay: .25
         })
 
       gsap.to('.anim-line-1', {
@@ -143,9 +145,11 @@ export default function MenuView({ menuViewOpen, setMenuViewOpen } : Props) {
   }
 
   const handleMenuLink = (idSection: string) => {
-    const anchorText =  idSection.split('#')[1]
-    const el: any = document.querySelector('#' + anchorText);
-    el.scrollIntoView({ behavior: 'smooth' });
+    // console.log(idSection);
+    
+    // const anchorText =  idSection.split('#')[1]
+    // const el: any = document.querySelector('#' + anchorText);
+    // el.scrollIntoView({ behavior: 'smooth' });
     closeMenu();
   }
 
@@ -231,12 +235,12 @@ export default function MenuView({ menuViewOpen, setMenuViewOpen } : Props) {
                               mainMenu.map( (item, i) => (
                                 <li key={i} className="overflow-hidden">
                                   <div className="anim-line-2">
-                                    <Link 
+                                    <a 
                                       href={item.url}
                                       className="text-white text-decoration-none karla"
                                       onClick={() => handleMenuLink(item.url)}>
                                         { item.name }
-                                    </Link>
+                                    </a>
                                   </div>
                                 </li>
                               ))
@@ -248,12 +252,11 @@ export default function MenuView({ menuViewOpen, setMenuViewOpen } : Props) {
                             secondaryMenu.map( (item, i) => (
                               <li key={i} className="overflow-hidden">
                                 <div className="anim-line-2">
-                                  <Link 
-                                    href={'/#team'} 
-                                    className="text-white  text-decoration-none" 
-                                    onClick={ () => handleMenuLink(item.url) }>
+                                  <a 
+                                    href={item.url} 
+                                    className="text-white  text-decoration-none">
                                       { item.name }
-                                  </Link>
+                                  </a>
                                 </div>
                               </li>
                             ))
