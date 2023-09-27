@@ -1,17 +1,8 @@
-"use client";
-
-import { basePath } from '../../../next.config.js';
-
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Autoplay } from 'swiper/modules';
-
-import 'swiper/css';
-import 'swiper/css/navigation';
-
 import bg from "assets/images/abastible.png";
 import Image from "next/image";
 
 import AppImageCarousel from '@/app/components/AppImageCarousel';
+import { ImageSlider } from '../../components/ImageSlider/index';
 
 import s from "./styles.module.scss";
 
@@ -54,27 +45,10 @@ export default function Page() {
 
               <div className={`${s['inner-service-wrapper']} mb-5`}>
                 <div>
-                  <Swiper
-                    loop
-                    autoplay
-                    navigation
-                    slidesPerView={1}
-                    modules={[Navigation, Autoplay]}
-                  >
-                    {webImages.map((item: string | undefined, index: number) => (
-                      <SwiperSlide key={index}>
-                        <div className={`${s['img-wrapper']}`}>
-                          <Image 
-                            draggable="false"
-                            fill={true}
-                            className={'border'}
-                            src={`${basePath}${item}`} 
-                            alt={"img"} 
-                            />
-                        </div>
-                      </SwiperSlide>
-                    ))}
-                  </Swiper>
+                  <ImageSlider 
+                    images={webImages} 
+                    imgWrapperClass={`${s['img-wrapper']}`}
+                  />
                 </div>    
                 <div>
                   <p className="fs-5 text-center text-md-start">Desarrollo de plataforma interna, para distribuidores para solicitud de pedidos, descuentos, seguimiento de flota y merchandising.</p>  

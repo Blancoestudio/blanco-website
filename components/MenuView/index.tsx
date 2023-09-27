@@ -1,35 +1,156 @@
 "use client";
 import Link from "next/link";
 
-// import { LogoBasement } from "../logos/logo";
-import s from "./styles.module.scss";
-import { SyntheticEvent, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
+
 import gsap from "gsap";
-import ScrollToPlugin from "gsap/ScrollToPlugin";
+
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+import s from "./styles.module.scss";
+import MotionPathPlugin from "gsap/MotionPathPlugin";
 
 interface Props {
   menuViewOpen: boolean,
   setMenuViewOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-export default function MenuView({ menuViewOpen, setMenuViewOpen } : Props) {
-
-  const aboutUsSectionRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
-  }, [])
-
-  const goTo = (e: SyntheticEvent) => {
-    console.log(e);
-    aboutUsSectionRef.current!.scrollIntoView({ behavior: 'smooth' });
+const mainMenu = [
+  {
+    name: 'Home',
+    url: '/'
+  },
+  {
+    name: 'Servicio',
+    url: '/#ourServiceSection'
+  },
+  {
+    name: 'Portafolio',
+    url: '/#portfolioSection'
+  },
+  {
+    name: 'Contacto',
+    url: '/#contactSection'
+  },
+  {
+    name: 'Nosotros',
+    url: '/#aboutUsSection'
   }
+];
+
+const secondaryMenu = [
+  {
+    name: 'Equipo',
+    url: '/#teamSection'
+  },
+  {
+    name: 'Misión',
+    url: '/#misionSection'
+  },
+  {
+    name: 'Pricipios',
+    url: '/'
+  },
+];
   
 
-  return (
-    <div className={`${s["menu-view-wrapper"]} ${ menuViewOpen ? s["show"] : s["hide"] } text-white`}>
 
+export default function MenuView({ menuViewOpen, setMenuViewOpen } : Props) {
+
+  const menuViewRef = useRef(null)
+  
+  useEffect(() => {
+    gsap.registerPlugin(ScrollToPlugin, ScrollTrigger, MotionPathPlugin);
+    
+    if (menuViewOpen) {
+
+      gsap.to('.anim-line-1', {
+          opacity: 0,
+          y: '100%',
+        })
+      
+      gsap.to('.anim-line-2', {
+          opacity: 0,
+          y: '100%',
+        })
+      
+      gsap.to('.anim-line-3', {
+          opacity: 0,
+          y: '3em',
+        })
+
+      gsap.to(menuViewRef.current, {
+          top: 0,
+          opacity: 1,
+          zIndex: 9999,
+          ease: 'power2',
+          delay: .5
+        })
+
+      gsap.to('.anim-line-1', {
+          opacity: 1,
+          y: 0,
+          delay: 1
+        })
+      gsap.to('.anim-line-2', {
+          opacity: 1,
+          y: 0,
+          delay: 1.5
+        })
+      gsap.to('.anim-line-3', {
+          opacity: 1,
+          y: 0,
+          delay: 1.75
+        })
+
+    } else {
+
+      
+      gsap.to('.anim-line-1', {
+          opacity: 0,
+          y: '100%',
+          duration: .5,
+        })
+      
+      gsap.to('.anim-line-2', {
+          delay: .5,
+          opacity: 0,
+          y: '100%',
+          duration: .5,
+        })
+      
+      gsap.to('.anim-line-3', {
+          delay: .5,
+          opacity: 0,
+          y: '3em',
+          duration: .5,
+        })
+
+      gsap.to(menuViewRef.current, {
+        top: '-100%',
+        opacity: 0.5,
+        zIndex: -1,
+        ease: 'power2',
+        delay: 1.25
+      })
+    }
+
+  }, [menuViewOpen])
+
+  const closeMenu = () => {
+    setMenuViewOpen(false);
+  }
+
+  const handleMenuLink = (idSection: string) => {
+    const anchorText =  idSection.split('#')[1]
+    const el: any = document.querySelector('#' + anchorText);
+    el.scrollIntoView({ behavior: 'smooth' });
+    closeMenu();
+  }
+
+  return (
+    <div ref={menuViewRef} className={`${s["menu-view-wrapper"]} text-white`}>
 
       <div className={`${s['menu-content']}`}>
         
@@ -50,12 +171,14 @@ export default function MenuView({ menuViewOpen, setMenuViewOpen } : Props) {
                   
                 <button 
                   className="btn btn-link d-flex ms-auto align-items-center text-white gap-1 text-decoration-none"
-                  onClick={ () => setMenuViewOpen(false) }
+                  onClick={ closeMenu }
                   >
                   <small>Menú</small>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-x-lg" viewBox="0 0 16 16">
-                    <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
-                  </svg>
+                  <span style={{ width: '2em' }}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-x-lg" viewBox="0 0 16 16">
+                      <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+                    </svg>
+                  </span>
                 </button>
 
               </div>
@@ -64,95 +187,91 @@ export default function MenuView({ menuViewOpen, setMenuViewOpen } : Props) {
 
         </div>
 
-        <div className="container h-100 py-5">
-          <div className="row h-100 align-items-center justify-content-center">
-            <div className="col-11 col-md-12">
+        <div className={`${s['content']}`}>
+          
+          <div className="container h-100 py-5">
+            <div className="row h-100 align-items-center justify-content-center">
+              <div className="col-11 col-md-12">
 
-                <div className="row">
-                  <div className="col-12 col-md-8">
-                    
-                    <div className="mb-5">
-                      <h4 style={{ fontSize: '1.25em', fontWeight: 'bold', color: '#98A5B1', lineHeight: '1em' }}>E-mail</h4>
-                      <a href="mailto:info@blanco-brand.com" className="text-white text-decoration-none fs-3">info@blanco-brand.com</a>
-                    </div>
-
-                    <div className="mb-5">
-                      <h4 style={{ fontSize: '1.25em', fontWeight: 'bold', color: '#98A5B1', lineHeight: '1em' }}>Ubicación</h4>
-                      <p className="text-white text-decoration-none fs-3">Santiago, Chile</p>
-                    </div>
-
-                    <div className="pt-5">
-                      <p className="text-white fs-3">¿Alguna pregunta? Felices te ayudamos</p>
-                      {/* <MyGradientButton 
-                      classes="mb-5"
-                        onClick={() => {}}
-                        >
-                        <div style={{ 
-                          display: 'flex', 
-                          alignItems: 'center', 
-                          fontSize: '20px',
-                          gap: '.5em'
-                          }}>
-                          Contáctanos
-                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-up-right" viewBox="0 0 16 16">
-                            <path fillRule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0v-6z"/>
-                          </svg>
+                  <div className="row">
+                    <div className="col-12 col-md-8">
+                      
+                      <div className="mb-5">
+                        <h4 className="fw-bold anim-line-1" style={{ color: '#98A5B1' }}>E-mail</h4>
+                        <div className="anim-line-2">
+                          <a href="mailto:info@blanco-brand.com" className="text-white text-decoration-none fs-3">info@blanco-brand.com</a>
                         </div>
-                      </MyGradientButton> */}
-                      <button className="btn-gradient mb-5">
-                        Contáctanos
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-up-right" viewBox="0 0 16 16">
-                          <path fillRule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0v-6z"/>
-                        </svg>
-                      </button>
+                      </div>
+
+                      <div className="mb-5">
+                        <h4 className="fw-bold anim-line-1" style={{ color: '#98A5B1' }}>Ubicación</h4>
+                        <p className="text-white text-decoration-none fs-3 anim-line-2">Santiago, Chile</p>
+                      </div>
+
+                      <div className="pt-5">
+                        <p className="text-white fs-3 anim-line-2">¿Alguna pregunta? Felices te ayudamos</p>
+                        <div className="anim-line-3">
+                          <button
+                            onClick={ () => handleMenuLink('/#contactSection') }
+                            className="btn-gradient mb-5 text-decoration-none text-white">
+                            Contáctanos
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-up-right" viewBox="0 0 16 16">
+                              <path fillRule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0v-6z"/>
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+
+                    </div>
+                    <div className="col">
+
+                      <div className={s["menu-wrapper"]}>
+                        <ul className={`${s["primary-menu"]} display-4 text-uppercase`}>
+                            {
+                              mainMenu.map( (item, i) => (
+                                <li key={i} className="overflow-hidden">
+                                  <div className="anim-line-2">
+                                    <Link 
+                                      href={item.url}
+                                      className="text-white text-decoration-none karla"
+                                      onClick={() => handleMenuLink(item.url)}>
+                                        { item.name }
+                                    </Link>
+                                  </div>
+                                </li>
+                              ))
+                            }
+                        </ul>
+
+                        <ul className={`${s["secondary-menu"]} fs-4 fw-medium karla`}>
+                          {
+                            secondaryMenu.map( (item, i) => (
+                              <li key={i} className="overflow-hidden">
+                                <div className="anim-line-2">
+                                  <Link 
+                                    href={'/#team'} 
+                                    className="text-white  text-decoration-none" 
+                                    onClick={ () => handleMenuLink(item.url) }>
+                                      { item.name }
+                                  </Link>
+                                </div>
+                              </li>
+                            ))
+                          }
+                        </ul>
+                      </div>
                     </div>
 
                   </div>
-                  <div className="col">
 
-                    <div className={s["menu-wrapper"]}>
-                      <ul className={`${s["primary-menu"]} display-4 text-uppercase karla`}>
-                        <li>
-                          <Link className="text-white text-decoration-none karla" href={'/'} onClick={ () => setMenuViewOpen(false) }>Home</Link>
-                        </li>
-                        <li>
-                          <Link className="text-white text-decoration-none karla" href={'/#ourServiceSection'} onClick={ () => setMenuViewOpen(false) }>Servicio</Link>
-                        </li>
-                        <li>
-                          <Link className="text-white text-decoration-none karla" href={'/#portfolio'} onClick={ () => setMenuViewOpen(false) }>Portafolio</Link>
-                        </li>
-                        <li>
-                          <Link className="text-white text-decoration-none karla" href={'/#contact'} onClick={ () => setMenuViewOpen(false) }>Contacto</Link>
-                        </li>
-                        <li>
-                          <Link className="text-white text-decoration-none karla" href={'/#about'} onClick={ () => setMenuViewOpen(false) }>Nosotros</Link>
-                        </li>
-                      </ul>
-
-                      <ul className={`${s["secondary-menu"]} fs-4 fw-medium karla`}>
-                        <li>
-                          {/* <Link href={'/#team'} className="text-white  text-decoration-none" onClick={ () => setMenuViewOpen(false) }>Equipo</Link> */}
-                          <a href={'/#team'} className="text-white  text-decoration-none" onClick={ () => setMenuViewOpen(false) }>Equipo</a>
-                        </li>
-                        <li>
-                          {/* <Link href={'/#mision'} className="text-white  text-decoration-none" onClick={ () => setMenuViewOpen(false) }>Misión</Link> */}
-                          <a href={'/#misionSection'} className="text-white  text-decoration-none" onClick={ () => setMenuViewOpen(false) }>Misión</a>
-                        </li>
-                        <li>
-                          <Link href={'/#values'} className="text-white  text-decoration-none" onClick={ () => setMenuViewOpen(false) }>Principios</Link>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-
-                </div>
-
+              </div>
             </div>
           </div>
+
         </div>
 
-      </div>
 
+      </div>
     </div>
   );
 }

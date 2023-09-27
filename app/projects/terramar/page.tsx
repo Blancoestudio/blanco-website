@@ -1,17 +1,7 @@
-'use client'
-
-import { basePath } from '../../../next.config.js';
-
-import bg from "../../../assets/images/terramar.png";
-
 import Image from 'next/image';
 
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Autoplay } from 'swiper/modules';
-
-import 'swiper/css';
-import 'swiper/css/navigation';
-
+import { ImageSlider } from '../../components/ImageSlider/index';
+import bg from "../../../assets/images/terramar.png";
 import s from './styles.module.scss';
 
 const page = () => {
@@ -54,27 +44,8 @@ const page = () => {
                   <p className="fs-5 text-center text-md-start">Desarrollo de plataforma para Terramar Estados Unidos para seguimiento y control de importaciones y exportaciones de materia prima.</p>
                 </div>
                 <div>
-                  <Swiper
-                    loop
-                    width={675}
-                    height={375}
-                    autoplay
-                    navigation
-                    modules={[Navigation, Autoplay]}
-                  >
-                    {images.map((item: string | undefined, index: number) => (
-                      <SwiperSlide key={index} className="border">
-                        <div className={`${s['img-wrapper']}`}>
-                          <Image 
-                            draggable="false"
-                            fill={true}
-                            src={`${basePath}${item}`} 
-                            alt={"img"} 
-                            />
-                        </div>
-                      </SwiperSlide>
-                    ))}
-                  </Swiper>
+                  <ImageSlider images={ images } imgWrapperClass={`${s['img-wrapper']}`} />
+                  {/* width={675} height={375} */}
                 </div>
                 <div>
                   <p className="fs-5 text-center text-md-start">Sistema de control y monitoreo de stocks, BL, trazabilidad inbound y outbound, control de embarques y documentación.</p>

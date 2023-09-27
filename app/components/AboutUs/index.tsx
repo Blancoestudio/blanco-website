@@ -6,11 +6,13 @@ import s from './styles.module.scss';
 
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Link from 'next/link';
 
 
 export const AboutUs = () => {
 
-  const aboutUsSectionRef = useRef(null)
+  const aboutUsSectionRef = useRef(null);
+  const btnMoreRef = useRef(null);
   
   
   useEffect(() => {
@@ -30,6 +32,7 @@ export const AboutUs = () => {
             scrollTrigger: {
               trigger: '#aboutUsSection',
               start: 'top 33.3%',
+              end: 'bottom 75%',
               toggleActions: "restart reverse restart reverse",
             },
             y: 0,
@@ -37,6 +40,21 @@ export const AboutUs = () => {
             stagger: .25,
             duration: .75,
           })
+      
+      gsap.fromTo(btnMoreRef.current, {
+        y: '200%',
+        opacity: 0
+      }, {
+        scrollTrigger: {
+          trigger: '#aboutUsSection',
+          start: 'top 33.3%',
+          end: 'bottom 75%',
+          toggleActions: "restart reverse restart reverse",
+        },
+        duration: .5,
+        y: 0,
+        opacity: 1
+      })
 
     }
     
@@ -82,17 +100,15 @@ export const AboutUs = () => {
                   <div className={s["second-content"]}>
                     <div className={s["second-link-container"]}>
                       
-                      <button 
+                      <Link
+                        ref={btnMoreRef}
                         className="btn-gradient text-white text-decoration-none"
-                        // onClick={() => {
-                        //   router.push("/AboutUs");
-                        // }}
-                        >
-                        Más sobre nosotros
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-up-right" viewBox="0 0 16 16">
-                          <path fillRule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0v-6z"/>
-                        </svg>
-                      </button>
+                        href={'/#'}>
+                          Más sobre nosotros
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-up-right" viewBox="0 0 16 16">
+                            <path fillRule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0v-6z"/>
+                          </svg>
+                      </Link>
                      
                     </div>
 

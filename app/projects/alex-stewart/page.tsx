@@ -1,17 +1,9 @@
-'use client'
 
 import React from 'react'
 import Image from 'next/image'
 
-import { basePath } from '../../../next.config.js';
-
 import bg from "../../../assets/images/alexstewart.png";
-
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Autoplay } from 'swiper/modules';
-
-import 'swiper/css';
-import 'swiper/css/navigation';
+import { ImageSlider } from '../../components/ImageSlider/index';
 
 import s from './styles.module.scss';
 
@@ -56,40 +48,10 @@ const page = () => {
                   <p className="fs-5 text-center text-md-start">Se desarrolla una plataforma que permite un mejor control, seguimiento y gestión de operaciones, pudiendo monitorear los tiempos de facturación, y envío de informes. Generando una plataforma ágil y amigable para el usuario.</p>
                 </div>
                 <div>
-                  {/* <Swiper
-                      loop
-                      autoplay
-                      navigation
-                      slidesPerView={1}
-                      modules={[Navigation, Autoplay]}
-                    >
-                    {images.map((item: string | undefined, index: number) => (
-                      <SwiperSlide key={index}>
-                        <Image src={item!} width={850} height={300} draggable="false" alt={"img"} />
-                        <img draggable="false" src={item} width="100%" alt="" />
-                      </SwiperSlide>
-                    ))}
-                  </Swiper> */}
-                  <Swiper
-                    loop
-                    autoplay
-                    navigation
-                    slidesPerView={1}
-                    modules={[Navigation, Autoplay]}
-                  >
-                    {images.map((item: string | undefined, index: number) => (
-                      <SwiperSlide key={index}>
-                        <div className={`${s['img-wrapper']}`}>
-                          <Image 
-                            draggable="false"
-                            fill={true}
-                            src={`${basePath}${item}`} 
-                            alt={"img"} 
-                            />
-                        </div>
-                      </SwiperSlide>
-                    ))}
-                  </Swiper>
+                  <ImageSlider 
+                    images={images} 
+                    imgWrapperClass={`${s['img-wrapper']}`} 
+                    />
                 </div>
               </div>
 
