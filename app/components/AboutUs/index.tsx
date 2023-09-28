@@ -58,26 +58,6 @@ export const AboutUs = () => {
 
     }
     
-  //   gsap.to('.text-line-2', {
-  //     scrollTrigger: {
-  //       trigger: '#aboutUsSection',
-  //       start: 'top center',
-  //       end: 'bottom 85%',
-  //       toggleActions: "restart reverse restart reverse",
-  //       markers: true,
-  //       // pin: "#aboutUsSection",
-  //       // scrub: true
-  //     },
-  //     y: 0,
-  //     duration: .5,
-  //     overflow: 'hidden',
-  //     // duration: 3,
-  //     // delay: 1,
-  //     // opacity: 1,
-  //     // overflow: 'hidden',
-  //     // stagger: .35
-  //   });
-    
   }, [])
   
 
