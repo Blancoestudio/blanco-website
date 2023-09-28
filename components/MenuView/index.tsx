@@ -147,7 +147,7 @@ export default function MenuView({ menuViewOpen, setMenuViewOpen } : Props) {
   }
 
   const handleMenuLink = (idSection: string) => {
-    router.push(`${idSection}`, { scroll: true })
+    router.push(`/${idSection}`, { scroll: true })
     closeMenu();
   }
 

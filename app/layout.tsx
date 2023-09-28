@@ -8,7 +8,7 @@ import { Footer } from '../components/Footer';
 import { karla, nunito } from '@/assets/fonts';
 
 import '../assets/styles/globals.scss'
-// import { basePath } from '@/next.config';
+import { basePath } from '@/next.config';
 
 export const metadata: Metadata = {
   title: {
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
       { 
         width: 1200, 
         height: 630, 
-        url: `${siteOrigin}/blanco.png` }
+        url: `${siteOrigin}${basePath}/blanco.png` }
     ],
   },
   twitter: {
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
       { 
         width: 1200, 
         height: 630, 
-        url: `${siteOrigin}/blanco.png` 
+        url: `${siteOrigin}${basePath}/blanco.png` 
       }
     ],
   },
