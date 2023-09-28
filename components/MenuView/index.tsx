@@ -12,7 +12,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import s from "./styles.module.scss";
 import MotionPathPlugin from "gsap/MotionPathPlugin";
 
-import { basePath } from "@/next.config";
 import { useRouter } from 'next/navigation'
 
 interface Props {
@@ -148,7 +147,6 @@ export default function MenuView({ menuViewOpen, setMenuViewOpen } : Props) {
   }
 
   const handleMenuLink = (idSection: string) => {
-    // console.log(idSection);
     router.push(`/${idSection}`, { scroll: true })
     closeMenu();
   }
