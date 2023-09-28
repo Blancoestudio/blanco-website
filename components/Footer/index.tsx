@@ -32,10 +32,10 @@ export const Footer = () => {
 
                 <div className="col-12 col-md-6 order-1 order-md-2">
                   <ul className={`${s['footer-menu']}`}>
-                    {/* <li><Link className="text-white text-decoration-none" scroll={false} href={'#portfolio'}>Portafolio</Link></li> */}
-                    {/* <li><Link className="text-white text-decoration-none" scroll={false} href={'#about'}>Sobre nosotros</Link></li> */}
-                    {/* <li><Link className="text-white text-decoration-none" scroll={false} href={'#services'}>Servicios</Link></li> */}
-                    {/* <li><Link className="text-white text-decoration-none" scroll={false} href={'#contact'}>Contacto</Link></li> */}
+                    <li><Link className="text-white text-decoration-none" scroll={false} href={'#portfolio'}>Portafolio</Link></li>
+                    <li><Link className="text-white text-decoration-none" scroll={false} href={'#about'}>Sobre nosotros</Link></li>
+                    <li><Link className="text-white text-decoration-none" scroll={false} href={'#services'}>Servicios</Link></li>
+                    <li><Link className="text-white text-decoration-none" scroll={false} href={'#contact'}>Contacto</Link></li>
                   </ul>
                 </div>
               </div>
