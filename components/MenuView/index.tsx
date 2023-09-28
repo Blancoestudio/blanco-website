@@ -235,7 +235,7 @@ export default function MenuView({ menuViewOpen, setMenuViewOpen } : Props) {
                                 <li key={i} className="overflow-hidden">
                                   <div className="anim-line-2">
                                     <Link 
-                                      href={ item.url }
+                                      href={ `/${item.url}` }
                                       className="text-white text-decoration-none karla"
                                       onClick={() => handleMenuLink(item.url)}
                                       >
@@ -253,9 +253,9 @@ export default function MenuView({ menuViewOpen, setMenuViewOpen } : Props) {
                               <li key={i} className="overflow-hidden">
                                 <div className="anim-line-2">
                                   <Link 
-                                    href={ item.url } 
+                                    href={ `/${item.url}` }
                                     className="text-white  text-decoration-none" 
-                                    // onClick={ () => handleMenuLink(item.url) }
+                                    onClick={ () => handleMenuLink(item.url) }
                                     >
                                       { item.name }
                                   </Link>
