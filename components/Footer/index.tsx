@@ -66,7 +66,7 @@ export const Footer = () => {
                           <Link 
                             className="text-white text-decoration-none" 
                             scroll={false} 
-                            href={`${item.url}`}
+                            href={`/${item.url}`}
                             onClick={ () => handleMenuLink( item.url ) }
                             >
                               { item.name }
