@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 
 import s from './styles.module.scss';
 import gsap from 'gsap';
-import { basePath } from '@/next.config';
+// import { basePath } from '@/next.config';
 
 interface formProps {
   email: string
@@ -57,7 +57,7 @@ export const ContactForm = () => {
 
     try {
 
-      await fetch(`${basePath}/api/contact`, {
+      await fetch(`/api/contact`, {
         method: 'post',
         body: JSON.stringify(formData)
       })
