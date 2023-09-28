@@ -57,7 +57,7 @@ export const ContactForm = () => {
 
     try {
 
-      await fetch(`${basePath}api/contact`, {
+      await fetch(`${basePath}/api/contact`, {
         method: 'post',
         body: JSON.stringify(formData)
       })
