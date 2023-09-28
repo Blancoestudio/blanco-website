@@ -16,7 +16,7 @@ export const Contact = () => {
                 <h1 className="text-center text-uppercase karla">Colaboramos<br/> para lograr tus<br/> objetivos</h1>
               </div>
 
-              {/* <ContactForm /> */}
+              <ContactForm />
 
           </div>
         </div>
