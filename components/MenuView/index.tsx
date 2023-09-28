@@ -148,11 +148,7 @@ export default function MenuView({ menuViewOpen, setMenuViewOpen } : Props) {
   }
 
   const handleMenuLink = (idSection: string) => {
-    // const anchorText =  idSection.split('#')[1]
-    // const el: any = document.querySelector('#' + anchorText);
-    // el.scrollIntoView({ behavior: 'smooth' });
-    console.log(idSection);
-    
+    // console.log(idSection);
     router.push(`/${idSection}`, { scroll: true })
     closeMenu();
   }
@@ -219,16 +215,15 @@ export default function MenuView({ menuViewOpen, setMenuViewOpen } : Props) {
                       <div className="pt-5">
                         <p className="text-white fs-3 anim-line-2">¿Alguna pregunta? Felices te ayudamos</p>
                         <div className="anim-line-3">
-                          <Link
-                            href={"/#contactSection"}
-                            onClick={() => handleMenuLink('/#contactSection')}
+                          <button
+                            onClick={() => handleMenuLink(`/#contactSection`)}
                             className="btn-gradient mb-5 text-decoration-none text-white" 
                             >
                             Contáctanos
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-up-right" viewBox="0 0 16 16">
                               <path fillRule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0v-6z"/>
                             </svg>
-                          </Link>
+                          </button>
                         </div>
                       </div>
 

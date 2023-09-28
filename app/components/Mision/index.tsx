@@ -30,7 +30,7 @@ export const Mision = () => {
               <div>
                 <p className="text-end nunito fs-3 text-center text-md-end">Nuestra misión es impulsar el cambio a través de la tecnología y crear soluciones inspiradoras y escalables que transformen la forma en que las empresas y las personas interactúan con el mundo.</p>
               </div>
-              <div className={s["data"]}>
+              <div id="teamSection" className={s["data"]}>
                 <small>Clientes regulares</small>
                 <span className="karla">90%</span>
               </div>
@@ -45,7 +45,7 @@ export const Mision = () => {
               <div >
                 <p className="text-center text-md-start">¿Tienes un sueño y no sabes cómo llevarlo a la realidad?</p>
               </div>
-              <div id="teamSection">Test</div>
+              <div>Test</div>
             </div>
 
           </div>
