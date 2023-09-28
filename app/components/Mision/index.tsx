@@ -42,10 +42,10 @@ export const Mision = () => {
                 <small>Nada nos detiene desde</small>
                 <span className="karla">2020</span> 
               </div>
-              <div>
+              <div >
                 <p className="text-center text-md-start">¿Tienes un sueño y no sabes cómo llevarlo a la realidad?</p>
               </div>
-              <div>Test</div>
+              <div id="teamSection">Test</div>
             </div>
 
           </div>
