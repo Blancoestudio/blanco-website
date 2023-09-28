@@ -1,10 +1,38 @@
+'use client'
+
 import React from 'react'
 
 import s from './styles.module.scss';
 import Link from 'next/link';
 import { GoTopBtn } from './GoTopBtn';
 
+const footerMenu = [
+  {
+    name: 'Portafolio',
+    url: '/#portfolioSection'
+  },
+  {
+    name: 'Nosotros',
+    url: '/#aboutUsSection'
+  },
+  {
+    name: 'Servicio',
+    url: '/#ourServiceSection'
+  },
+  {
+    name: 'Contacto',
+    url: '/#contactSection'
+  },
+];
+
+
 export const Footer = () => {
+
+  const handleMenuLink = (idSection: string) => {
+    const anchorText =  idSection.split('#')[1]
+    const el: any = document.querySelector('#' + anchorText);
+    el.scrollIntoView({ behavior: 'smooth' });
+  }
 
   return (
     <div>
@@ -32,10 +60,44 @@ export const Footer = () => {
 
                 <div className="col-12 col-md-6 order-1 order-md-2">
                   <ul className={`${s['footer-menu']}`}>
-                    <li><Link className="text-white text-decoration-none" scroll={false} href={'#portfolio'}>Portafolio</Link></li>
-                    <li><Link className="text-white text-decoration-none" scroll={false} href={'#about'}>Sobre nosotros</Link></li>
-                    <li><Link className="text-white text-decoration-none" scroll={false} href={'#services'}>Servicios</Link></li>
-                    <li><Link className="text-white text-decoration-none" scroll={false} href={'#contact'}>Contacto</Link></li>
+                    {
+                      footerMenu.map( (item, i) => (
+                        <li key={i}>
+                          <Link 
+                            className="text-white text-decoration-none" 
+                            scroll={false} 
+                            href={`${item.url}`}
+                            onClick={ () => handleMenuLink( item.url ) }
+                            >
+                              { item.name }
+                          </Link>
+                        </li>
+                      ))
+                    }
+                    {/* <li>
+                      <Link 
+                        className="text-white text-decoration-none" 
+                        scroll={false} 
+                        href={'#about'}>Sobre 
+                        nosotros
+                      </Link>
+                    </li>
+                    <li>
+                      <Link 
+                        className="text-white text-decoration-none" 
+                        scroll={false} 
+                        href={'#services'}>
+                          Servicios
+                      </Link>
+                    </li>
+                    <li>
+                      <Link 
+                        className="text-white text-decoration-none" 
+                        scroll={false} 
+                        href={'#contact'}>
+                          Contacto
+                      </Link>
+                    </li> */}
                   </ul>
                 </div>
               </div>
