@@ -1,29 +1,30 @@
 'use client'
 
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useState } from 'react'
 
-import s from './styles.module.scss';
-import PartnerItem from '../PartnerItem';
-
-// Import Swiper React components
 import SwiperCore, { Swiper } from 'swiper';
 import { Swiper as SwiperComponent, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
 
 SwiperCore.use([Pagination]);
 
+import PartnerItem from '../PartnerItem';
+
 import 'swiper/css';
+import s from './styles.module.scss';
+
 
 export const Partners = () => {
 
   const [swiper, setSwiper] = useState<Swiper | null>(null);
   const [commentActive, setCommentActive] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   let data = [
     {
       name: "Sebastían Levit",
       role: "Founder Klever",
-      image: "",
+      image: "/images/sebastian-levit.png",
       description:
         "”Sin duda trabajar con Blanco Estudio superó mis expectativas. Las reuniones previas fueron fundamentales para entender el ecosistema emprendedor y lo importante que es tener un buen producto pero más aún, un buen equipo y modelo de negocios. El camino en conjunto desde la idea, diseño e implementación fue clave recorrerlo junto a ellos.”",
       linkedin: ''
@@ -31,7 +32,7 @@ export const Partners = () => {
     {
       name: "Franz Apablaza",
       role: "Alex Stewart Co.",
-      image: "",
+      image: "/images/franz-pablaza.png",
       description:
         "”Blanco Estudio se ha convertido en nuestro socio confiable en el desarrollo de soluciones creativas. Su enfoque estratégico y su talento para combinar tecnología y diseño nos han permitido alcanzar resultados impresionantes. Además, las sesiones de reuniones de brainstorming fueron altamente productivas y nos brindaron un espacio de colaboración estimulante. Estamos encantados con los resultados logrados y agradecidos por el apoyo y compromiso del equipo de Blanco Estudio a lo largo de todo el proceso.”",
       linkedin: ''
@@ -39,7 +40,7 @@ export const Partners = () => {
     {
       name: "Lorena Contreras",
       role: "Clínica Biobío",
-      image: "",
+      image: "/images/lorena-contreras.png",
       description:
         "”Trabajar con Blanco Estudio fue una experiencia excepcional. Su equipo demostró un profundo entendimiento de nuestras necesidades y objetivos, lo cual se reflejó en soluciones creativas y personalizadas. Los resultados hablan por sí mismos, y estamos muy contentos con el impacto positivo que han tenido en nuestro negocio. ¡Recomendaría a Blanco Estudio a cualquier emprendedor que busque resultados excepcionales!”",
       linkedin: ''
@@ -47,23 +48,27 @@ export const Partners = () => {
     {
       name: "Carolina Obregón",
       role: "Universidad del Desarrollo",
-      image: "",
+      image: "/images/carolina-obregon.png",
       description:
         "”Como directora comercial quiero expresar mi gratitud y reconocimiento a Blanco Estudio por su invaluable contribución durante un momento crucial para nuestra institución. En medio de la pandemia de COVID-19, necesitábamos urgentemente una plataforma eficiente para apoyar a colegios en preparar a sus estudiantes para la Prueba de Aptitud Académica (PAES). Fue entonces cuando nos encontramos con Blanco Estudio, y su respuesta fue extraordinaria.\nSu equipo comprendió rápidamente nuestras necesidades y desafíos específicos.\nEl resultado superó todas nuestras expectativas. La plataforma BIU, no solo fue eficiente y fácil de usar, sino que también proporcionó una experiencia de aprendizaje en línea excepcional.”",
       linkedin: ''
     },
   ];
 
-  const handleSliderComments = (i: number) => {
-    swiper?.slideTo(i);
-    setCommentActive(i);
+  const handleSlideChange = (swiper: SwiperCore) => {
+    setCommentActive(swiper.activeIndex);
+    setCurrentSlide(swiper.activeIndex)
+  }
+
+  const handleNavigationSlider = (i: number) => {
+    swiper && swiper.slideTo(i);
   }
 
   return (
     <div id="partnerSection" className="section py-5">
       <div className="container">
 
-        <h2 className={`header-title karla text-white my-5 text-center text-md-start`}>NUESTROS<br/> PARTNERS</h2>
+        <h2 className={`header-title karla text-white mt-5 text-center text-md-start`}>NUESTROS<br/> PARTNERS</h2>
 
         <div className="row justify-content-center">
           <div className="col-12 col-md-3">
@@ -72,7 +77,7 @@ export const Partners = () => {
                 <li 
                   key={index} 
                   className={ `${s['custom-pagination-item']} ${commentActive === index ? s['active'] : ''}` } 
-                  onClick={ () => handleSliderComments(index) }
+                  onClick={ () => handleNavigationSlider(index) }
                   >
                     0{index + 1}
                 </li>
@@ -93,7 +98,7 @@ export const Partners = () => {
             wrapperClass={`${s['swiper-products']}`}
             spaceBetween={25}
             onSwiper={ (swiperInstance) => setSwiper(swiperInstance) }
-            onSlideChange={(swiper) => setCommentActive(swiper.activeIndex)}
+            onSlideChange={ (swiper) => handleSlideChange(swiper) }
             pagination={{ 
               type: 'custom',
               el: '.custom-pagination', 
@@ -108,9 +113,9 @@ export const Partners = () => {
             }}
           >
             
-              {data.map((item, index) => (
-                <SwiperSlide key={index} className={`${s['swiper-item']} `}>
-                    <PartnerItem key={index} {...item}  />
+              {data.map((item, i) => (
+                <SwiperSlide key={i} className={`${s['swiper-item']} `}>
+                    <PartnerItem {...item} index={i} currentSlide={currentSlide}  />
                 </SwiperSlide>
               ))}
               

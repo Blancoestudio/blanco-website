@@ -1,25 +1,35 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import s from './styles.module.scss';
 import Image from 'next/image';
 
 interface PropTypes {
+  index: number,
   name: string,
-  role: string,
-  image: string,
+  role?: string,
+  image?: string,
   description: string,
-  linkedin: string,
+  linkedin?: string,
+  currentSlide: number,
 }
 
-const PartnerItem: React.FC<PropTypes> = ({ name, role, image, description, linkedin }) => {
+const PartnerItem: React.FC<PropTypes> = ({ index, name, role, image, description, linkedin, currentSlide }) => {
+
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    console.log({currentSlide});
+    setIsOpen(false)
+  }, [currentSlide])
+  
   
   return (
       <div className={`${s['partner-wrapper']} text-white`}>
         <div className={`${s['comment']} ${ isOpen ? s['open'] : null }`}>
-          <p className="fs-5 text-center text-md-end">{ description ? description : 'Comment' }</p>
+          <p className="fs-6 text-center text-md-end">{ description ? description : 'Comment' }</p>
         </div>
         <button 
           type="button" 
+          disabled={ index !== currentSlide }
           className="btn btn-link text-decoration-none text-white d-flex align-items-center gap-2 ms-5"
           onClick={ () => setIsOpen(!isOpen) }
           >
@@ -44,7 +54,7 @@ const PartnerItem: React.FC<PropTypes> = ({ name, role, image, description, link
               {
                 image 
                   ? (
-                    <Image src={image} alt={'img-partner'} />
+                    <Image src={image} width={50} height={50} alt={'img-partner'} />
                     // <img src={image} alt="img-partner" />
                   )
                   : (

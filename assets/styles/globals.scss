@@ -152,6 +152,15 @@ main {
   overflow-x: hidden;
 }
 
+.main-wrapper {
+  .section {}
+}
+
+// .main-wrapper {
+//   scroll-snap-type: y mandatory;
+//   border: 1px solid red;
+// }
+
 // fonts
 .karla {
   font-family: var(--font-karla);

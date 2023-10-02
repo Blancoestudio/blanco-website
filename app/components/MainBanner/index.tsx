@@ -20,7 +20,7 @@ export const MainBanner = () => {
   useEffect(() => {
     
     setIsPlayerReady(true);
-    setbgVideo('videos/bg-video.mp4');
+    setbgVideo('videos/bg-video-reverse.mp4');
 
     if (typeof window !== 'undefined') {
 
@@ -51,10 +51,9 @@ export const MainBanner = () => {
         delay: .5,
         duration: .5
       })
-
+      
     }
-   
-    
+
   }, []);
 
   return (
@@ -63,6 +62,7 @@ export const MainBanner = () => {
       <div className={`${s['loader']}`} ref={loaderRef}></div>
 
       <div className={`${s['banner-wrapper']}`}>
+        <div className={`${s['courtain']}`}></div>
         <div className={s.video}>
           {
             isPlayerReady

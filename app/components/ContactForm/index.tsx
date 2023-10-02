@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useRef, useState } from 'react'
 
 import s from './styles.module.scss';
 import gsap from 'gsap';
@@ -19,7 +19,6 @@ export const ContactForm = () => {
   const [formData, setFormData] = useState<formProps>({
     email: '',
   });
-
 
   const hanldeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     gsap.to(errorAlertRef.current, {
@@ -57,8 +56,8 @@ export const ContactForm = () => {
 
     try {
 
-      await fetch(`${basePath}/api/contact`, {
-        method: 'post',
+      await fetch(`/api/contact`, {
+        method: 'POST',
         body: JSON.stringify(formData)
       })
         .then(resp => {
@@ -67,22 +66,25 @@ export const ContactForm = () => {
             throw new Error('Error en la solicitud');
           }
           return resp.json();
+
         })
         .then(data => {
           // console.log('Respuesta del servidor:', data);
-          
-          setFormData({ email: '' });
-          setSending(false);
-          gsap.to(successAletRef.current, {
-            opacity: 1,
-            top: '110%'
-          })
-          setTimeout(() => {
+
+          if (data) {
+            setFormData({ email: '' });
+            setSending(false);
             gsap.to(successAletRef.current, {
-              opacity: 0,
-              top: 0
+              opacity: 1,
+              top: '110%'
             })
-          }, 3000);
+            setTimeout(() => {
+              gsap.to(successAletRef.current, {
+                opacity: 0,
+                top: 0
+              })
+            }, 3000);
+          }
 
         })
         .catch(error => {
