@@ -1,14 +1,16 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 import s from './styles.module.scss';
 import gsap from 'gsap';
-import { basePath } from '@/next.config';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 interface formProps {
-  email: string
+  email: string,
 }
 
 export const ContactForm = () => {
+
+  const formRef = useRef(null);
   
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
@@ -19,6 +21,43 @@ export const ContactForm = () => {
   const [formData, setFormData] = useState<formProps>({
     email: '',
   });
+
+  useEffect(() => {
+
+    console.log(formRef);
+    
+    
+    // let ctx = gsap.context(() => {
+    // }, );
+    // return () => ctx.revert(); // cleanup! 
+    let ctx = gsap.context(() => {
+
+      if (typeof window !== 'undefined') {
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        const tl = gsap.timeline();
+  
+        tl.fromTo(formRef.current, {
+          opacity: 0,
+          yPercent: 100,
+        }, {
+          scrollTrigger: {
+            trigger: formRef.current,
+            start: 'top bottom',
+            end: '100% 95%',
+            scrub: 1,
+          },
+          opacity: 1,
+          yPercent: 0,
+        })
+        
+      }
+
+    }, );
+    return () => ctx.revert(); // cleanup! 
+
+  }, [])
 
   const hanldeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     gsap.to(errorAlertRef.current, {
@@ -111,7 +150,7 @@ export const ContactForm = () => {
 
   return (
     <>
-    <div className="d-flex flex-column flex-md-row align-items-center justify-content-center">
+    <div ref={formRef} className="d-flex flex-column flex-md-row align-items-center justify-content-center">
       <div className={s["contact-container"]}>
         <form
           className="d-flex align-items-center gap-4 position-relative"

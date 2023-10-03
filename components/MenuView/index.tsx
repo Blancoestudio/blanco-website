@@ -89,23 +89,23 @@ export default function MenuView({ menuViewOpen, setMenuViewOpen } : Props) {
           opacity: 1,
           zIndex: 9999,
           ease: 'power2',
-          delay: .5
+          delay: .25
         })
 
       gsap.to('.anim-line-1', {
           opacity: 1,
           y: 0,
-          delay: 1
+          delay: .5
         })
       gsap.to('.anim-line-2', {
           opacity: 1,
           y: 0,
-          delay: 1.5
+          delay: 1
         })
       gsap.to('.anim-line-3', {
           opacity: 1,
           y: 0,
-          delay: 1.75
+          delay: 1.5
         })
 
     } else {

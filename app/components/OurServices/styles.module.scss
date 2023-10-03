@@ -17,6 +17,7 @@
     border-bottom: 1px solid #88888888;
   }
   .list-item {
+    cursor: pointer;
     display: grid;
     grid-template-columns: repeat(8, 1fr);
     grid-template-rows: 1fr;

@@ -5,6 +5,8 @@ import React, { useEffect, useRef, useState } from 'react'
 import ReactPlayer from 'react-player'
 
 import s from './styles.module.scss';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 export const OurServices = () => {
 
@@ -13,12 +15,68 @@ export const OurServices = () => {
   const playerRef = useRef<ReactPlayer | null>(null);
   const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
+  const usersDomNodes: any[] = [];
+
   useEffect(() => {
-    // Código para interactuar con react-player u otras bibliotecas aquí
     setIsPlayerReady(true);
   }, [videoURL]);
 
-  // let previewUrl = "videos/01.mp4";
+  useEffect(() => {
+    
+    let ctx = gsap.context(() => {
+
+      const tl = gsap.timeline();
+
+      tl.fromTo('.head-line-1', {
+        opacity: 0,
+        y: 100
+      }, {
+        opacity: 1,
+        y: 0,
+        scrollTrigger: {
+          trigger: '.head-line-1',
+          start: 'top 75%',
+          end: 'top 50%',
+          scrub: true,
+        }
+      })
+      
+      tl.fromTo('.p-line-2', {
+        opacity: 0,
+        y: 100
+      }, {
+        opacity: 1,
+        y: 0,
+        scrollTrigger: {
+          trigger: '.p-line-2',
+          start: '-100% 75%',
+          end: '-50% 70%',
+          scrub: true,
+        }
+      })
+
+      tl.fromTo(usersDomNodes, {
+        opacity: 0,
+        x: 50
+      }, {
+        opacity: 1,
+        x: 0,
+        stagger: .2,
+        scrollTrigger: {
+          trigger: usersDomNodes,
+          start: 'top center',
+          end: '100px top',
+          scrub: true,
+
+        }
+      })
+
+    }, );
+    return () => ctx.revert(); // cleanup! 
+
+  }, [])
+  
+
   let data = [
     {
       id: "/01",
@@ -93,15 +151,23 @@ export const OurServices = () => {
 
               <div className="row my-5">
                 <div className="col display-3">
-                  <h1 className="text-white karla" style={{ fontSize: '1em' }}>NUESTRAS FORTALEZAS <br /> <span>y diferenciación</span></h1>
+                  <h1 className="text-white karla overflow-hidden" style={{ fontSize: '1em' }}>
+                    <div className="head-line-1">
+                      NUESTRAS FORTALEZAS <br /> <span>y diferenciación</span>
+                    </div>
+                  </h1>
+
                 </div>
               </div>
 
               <div className="row mb-5">
                 <div className="col offset-md-6">
                   <div className={`${s["description-content"]} nunito`}>
-                    <p className="mb-3 mb-md-0">Nos fortalece el entregar soluciones de impacto en la sociedad.</p>
-                    <p>Esto nos permite estar siempre conectados con al realidad y el futuro.</p>
+                    <p className="mb-3 mb-md-0 overflow-hidden">
+                      <span className="d-block p-line-2">
+                        Nos fortalece el entregar soluciones de impacto en la sociedad. <br/> Esto nos permite estar siempre conectados con al realidad y el futuro.
+                      </span>
+                    </p>
                   </div>
                 </div>
               </div>
@@ -133,27 +199,14 @@ export const OurServices = () => {
 
                   <div className={s["list-container"]}>
                     {data.map((item, index) => {
-                      // let aniStart = index * 10;
-                      // let aniEnd = aniStart + 50;
-                      // if (aniStart < 0) {
-                      //   aniStart = 0;
-                      // }
-                      // if (aniEnd < 0) {
-                      //   aniEnd = 0;
-                      // }
-                      // let xStart = aniStart * 0.5;
-                      // let opStart = 1 - aniEnd / 100;
-
                       return (
                         <div
                           key={index}
-                          // onMouseEnter={() => {
-                          //   onHover(item);
-                          // }}
+                          ref={e => (usersDomNodes[index] = e)}
                           onMouseOver={() => handleHover(item)}
                           onMouseOut={handleMouseOut}
                         >
-                          <div className={s["list-item"]}>
+                          <div className={`${s["list-item"]}`}>
                             <div className={s["list-item-id"]}>
                               <p className="karla">{item.id}</p>
                             </div>

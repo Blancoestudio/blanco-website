@@ -149,11 +149,16 @@ body {
 
 main {
   width: 100%;
-  overflow-x: hidden;
+  // overflow-x: hidden;
 }
 
 .main-wrapper {
-  .section {}
+  .section {
+   &.section-about-us {
+    opacity: .25;
+    transform: scale(.5);
+   } 
+  }
 }
 
 // .main-wrapper {

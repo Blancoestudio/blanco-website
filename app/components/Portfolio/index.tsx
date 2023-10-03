@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
@@ -20,8 +20,50 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import s from './styles.module.scss';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 export const Portfolio = () => {
+
+  const portfolioSectionRef = useRef(null);
+  const portfolioWrapper = useRef(null);
+  
+  useEffect(() => {
+    
+    let ctx = gsap.context(() => {
+
+      if (typeof window !== 'undefined') {
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        const tl = gsap.timeline();
+  
+        tl.fromTo(portfolioWrapper.current, {
+          opacity: .5,
+          scale: .75,
+        }, {
+          opacity: 1,
+          scale: 1,
+        })
+  
+        ScrollTrigger.create({
+          animation: tl,
+          trigger: portfolioSectionRef.current,
+          start: 'top top',
+          end: '100% center',
+          scrub: true,
+          pin: true,
+          snap: 1,
+          anticipatePin: 1,
+        })
+
+      }
+      
+    }, );
+    
+    return () => ctx.revert(); // cleanup! 
+    
+  }, [])
 
   const data = [
     // {
@@ -97,7 +139,9 @@ export const Portfolio = () => {
   ];
 
   return (
-    <div id="portfolioSection" className="section full">
+    <div ref={portfolioSectionRef} id="portfolioSection" className="section full">
+
+      <div ref={portfolioWrapper} className={`${s['portfolio-wrapper']}`}>
 
         <div className={`${s["wrapper-slider"]}`}>
           <Swiper
@@ -148,6 +192,8 @@ export const Portfolio = () => {
             </button>
           </Swiper>
         </div>
+      </div>
+
 
     </div>
   )
