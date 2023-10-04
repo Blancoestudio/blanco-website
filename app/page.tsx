@@ -89,7 +89,7 @@ export default function Home() {
       <Portfolio  />
       <Mision  />
       <Partners  />
-      <Contact  />
+      {/* <Contact  /> */}
     </div>
   )
 }

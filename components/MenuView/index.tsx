@@ -32,10 +32,10 @@ const mainMenu = [
     name: 'Portafolio',
     url: '/#portfolioSection'
   },
-  {
-    name: 'Contacto',
-    url: '/#contactSection'
-  },
+  // {
+  //   name: 'Contacto',
+  //   url: '/#contactSection'
+  // },
   {
     name: 'Nosotros',
     url: '/#aboutUsSection'

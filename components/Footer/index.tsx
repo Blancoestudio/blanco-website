@@ -19,10 +19,10 @@ const footerMenu = [
     name: 'Servicio',
     url: '/#ourServiceSection'
   },
-  {
-    name: 'Contacto',
-    url: '/#contactSection'
-  },
+  // {
+  //   name: 'Contacto',
+  //   url: '/#contactSection'
+  // },
 ];
 
 
