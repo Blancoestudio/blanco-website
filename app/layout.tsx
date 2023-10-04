@@ -1,7 +1,7 @@
 
 import type { Metadata } from 'next'
 
-import { siteOrigin } from '@/lib/contants';
+import { siteOrigin } from '@/utils/constants';
 
 import { MenuBar } from '../components/MenuBar';
 import { Footer } from '../components/Footer';

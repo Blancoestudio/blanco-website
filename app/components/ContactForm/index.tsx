@@ -1,11 +1,32 @@
+
 import React, { useEffect, useRef, useState } from 'react'
 
-import s from './styles.module.scss';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
+import s from './styles.module.scss';
+import { basePath } from '@/next.config';
 interface formProps {
   email: string,
+}
+
+async function getData(data: { email: string }) {
+
+  try {
+    basePath
+    const response = await fetch(`${basePath}/api/contact`, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(data)
+    })
+
+    const resp = await response.json();
+    return resp
+
+  } catch (error) {
+     throw Error('Errorrrrrrr!')
+  }
+
 }
 
 export const ContactForm = () => {
@@ -24,12 +45,6 @@ export const ContactForm = () => {
 
   useEffect(() => {
 
-    console.log(formRef);
-    
-    
-    // let ctx = gsap.context(() => {
-    // }, );
-    // return () => ctx.revert(); // cleanup! 
     let ctx = gsap.context(() => {
 
       if (typeof window !== 'undefined') {
@@ -70,9 +85,7 @@ export const ContactForm = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const { email } = formData;
-
-    if (!email || !emailRegex.test(email)) {
+    if ((formData.email === '') || !emailRegex.test(formData.email)) {
 
       gsap.to(errorAlertRef.current, {
         opacity: 1,
@@ -91,60 +104,52 @@ export const ContactForm = () => {
       return
     }
 
+    
     setSending(true);
-
+    
     try {
+      const response = await getData(formData);
+      
+      if (response.status) {
+        // console.log(response.status);
+        // console.log('Status OK');
 
-      await fetch(`/api/contact`, {
-        method: 'POST',
-        body: JSON.stringify(formData)
-      })
-        .then(resp => {
-          
-          if (!resp.ok) {
-            throw new Error('Error en la solicitud');
-          }
-          return resp.json();
-
+        setFormData({ email: '' });
+        gsap.to(successAletRef.current, {
+          opacity: 1,
+          top: '110%'
         })
-        .then(data => {
-          // console.log('Respuesta del servidor:', data);
+        setTimeout(() => {
+          gsap.to(successAletRef.current, {
+            opacity: 0,
+            top: 0
+          })
+        }, 3000);
 
-          if (data) {
-            setFormData({ email: '' });
-            setSending(false);
-            gsap.to(successAletRef.current, {
-              opacity: 1,
-              top: '110%'
+      } else {
+        // console.log(response.status);
+        // console.log('Status UNDEFINED');
+
+          gsap.to(errorAlertRef.current, {
+            opacity: 1,
+            top: '110%'
+          })
+    
+          setTimeout(() => {
+            
+            gsap.to(errorAlertRef.current, {
+              opacity: 0,
+              top: '0'
             })
-            setTimeout(() => {
-              gsap.to(successAletRef.current, {
-                opacity: 0,
-                top: 0
-              })
-            }, 3000);
-          }
-
-        })
-        .catch(error => {
-          console.error('Error:', error);
-        });
+            
+          }, 3000);
+      }
 
     } catch (error) {
-
-      gsap.to(errorAlertRef.current, {
-        opacity: 1,
-        top: '110%'
-      })
-
-      setTimeout(() => {
-
-        gsap.to(errorAlertRef.current, {
-          opacity: 0,
-          top: '0'
-        })
-      }, 3000);
+      console.log(error);
     }
+
+    setSending(false);
 
   }
 
@@ -233,7 +238,7 @@ export const ContactForm = () => {
             </div>
 
             <div ref={successAletRef} className={`${s['success-msg']} w-100 alert alert-success py-2`} role="alert">
-              ¡Correo recibido! Nos pondremos en contacto contigo pronto.
+              ¡Correo recibido! Nos pondremos en contacto contigo.
             </div>
         </form>
         <a className="btn btn-link text-white text-decoration-none fs-5 mt-5 mt-md-0" href="mailto:info@blanco-brand.com" role="button">info@blanco-brand.com</a>

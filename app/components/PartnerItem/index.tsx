@@ -17,7 +17,6 @@ const PartnerItem: React.FC<PropTypes> = ({ index, name, role, image, descriptio
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    console.log({currentSlide});
     setIsOpen(false)
   }, [currentSlide])
   
