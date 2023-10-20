@@ -82,14 +82,14 @@ export default function Home() {
 
   return (
     <div className="main-wrapper">
-      {/* <MainBanner /> */}
+      <MainBanner />
       <AboutUs  />
-      {/* <OurServices  />
+      <OurServices  />
       <Marquee  />
       <Portfolio  />
       <Mision  />
       <Partners  />
-      <Contact  /> */}
+      <Contact  />
     </div>
   )
 }
