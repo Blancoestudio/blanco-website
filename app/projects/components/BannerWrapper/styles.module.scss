@@ -1,0 +1,17 @@
+.banner-wrapper {
+  top: calc(65px * 2);
+  width: 100%;
+  height: auto;
+  position: absolute;
+  z-index: 2;
+  a {
+    font-family: 'Raleway';
+    text-decoration: none;
+    color: rgba($color: #ffffff, $alpha: .75);
+    transition: color .25s ease-in-out;
+    &:hover {
+      color: rgba($color: #ffffff, $alpha: 1);
+      transition: color .25s ease-in-out;
+    }
+  }
+}

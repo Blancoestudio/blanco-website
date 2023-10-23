@@ -5,6 +5,7 @@ import bg from "../../../assets/images/cardiomas.png"
 import Image from 'next/image';
 
 import s from './styles.module.scss';
+import { BannerWrapper } from '../components/BannerWrapper';
 
 const page = () => {
 
@@ -45,27 +46,29 @@ const page = () => {
 
   return (
     <div>
-      <div className="cover-wrapper">
-        <Image src={bg.src} className="img-cover" fill={true} alt={"image-background"} />
-        {/* <img className="img-cover" src={bg.src} alt="image-background" /> */}
-        <div className="container h-100 position-relative z-1">
-          <div className="row h-100 justify-content-center align-items-end">
-            <div className="col-11 mb-5">
-              
-              <div className="row align-items-end">
-                <div className="col">
-                  <p className="mb-0 fs-4">SOLUCIONES CARDIOVASCULARES</p>
-                  <h1 className="karla display-1 fw-bold mb-0">CARDIOMAS</h1>
+      <BannerWrapper>
+        <div className="cover-wrapper">
+          <Image src={bg.src} className="img-cover" fill={true} alt={"image-background"} />
+          {/* <img className="img-cover" src={bg.src} alt="image-background" /> */}
+          <div className="container h-100 position-relative z-1">
+            <div className="row h-100 justify-content-center align-items-end">
+              <div className="col-11 mb-5">
+                
+                <div className="row align-items-end">
+                  <div className="col">
+                    <p className="mb-0 fs-4">SOLUCIONES CARDIOVASCULARES</p>
+                    <h1 className="karla display-1 fw-bold mb-0">CARDIOMAS</h1>
+                  </div>
+                  <div className="col">
+                    <p className="fs-4 mb-3">Soluciones de alta complejidad que mejoran la vida de las personas y los procesos de negocios.</p>
+                  </div>
                 </div>
-                <div className="col">
-                  <p className="fs-4 mb-3">Soluciones de alta complejidad que mejoran la vida de las personas y los procesos de negocios.</p>
-                </div>
-              </div>
 
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </BannerWrapper>
 
       <div className="pt-5 text-white">
         <div className="container my-5">

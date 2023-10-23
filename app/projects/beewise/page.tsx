@@ -5,6 +5,7 @@ import AppImageCarousel from "@/app/components/AppImageCarousel";
 import { ImageSlider } from '../../components/ImageSlider/index';
 
 import s from "./styles.module.scss";
+import { BannerWrapper } from "../components/BannerWrapper";
 
 export default function Page() {
   const webImages = Array(3)
@@ -19,26 +20,28 @@ export default function Page() {
     });
   return (
     <main className="bg-black">
-      <div className="cover-wrapper">
-        <Image src={bg.src} fill={true} className="img-cover" alt={"image-background"} />
-        <div className="container h-100 position-relative z-1">
-          <div className="row h-100 justify-content-center align-items-end">
-            <div className="col-11 mb-5">
-              
-              <div className="row align-items-end">
-                <div className="col-12 col-md-6">
-                  <p className="mb-0 fs-4">GAMIFICACIÓN Y APRENDIZAJE</p>
-                  <h1 className="karla display-1 fw-bold mb-0">BEEWISE</h1>
+      <BannerWrapper>
+        <div className="cover-wrapper">
+          <Image src={bg.src} fill={true} className="img-cover" alt={"image-background"} />
+          <div className="container h-100 position-relative z-1">
+            <div className="row h-100 justify-content-center align-items-end">
+              <div className="col-11 mb-5">
+                
+                <div className="row align-items-end">
+                  <div className="col-12 col-md-6">
+                    <p className="mb-0 fs-4">GAMIFICACIÓN Y APRENDIZAJE</p>
+                    <h1 className="karla display-1 fw-bold mb-0">BEEWISE</h1>
+                  </div>
+                  <div className="col-12 col-md-6">
+                    <p className="fs-4 mb-3">Orientada a potenciar las habilidades y fortalecer el aprendizaje de tu compañia de forma interactiva</p>
+                  </div>
                 </div>
-                <div className="col-12 col-md-6">
-                  <p className="fs-4 mb-3">Orientada a potenciar las habilidades y fortalecer el aprendizaje de tu compañia de forma interactiva</p>
-                </div>
-              </div>
 
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </BannerWrapper>
 
       <div className="py-5 text-white">
         <div className="container my-5">

@@ -81,7 +81,7 @@ export const MainBanner = () => {
           }
         </div>
 
-        <div className="container h-100">
+        <div className="container-fluid h-100">
           <div className="row h-100 align-items-center ">
             <div className="col text-center">
               <h1 className="title-line text-center karla overflow-hidden">

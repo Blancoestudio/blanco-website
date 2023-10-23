@@ -6,10 +6,33 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/not-found": [
+    "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/not-found.js"
+      "static/css/app/page.css",
+      "static/chunks/app/page.js"
+    ],
+    "/projects/terramar/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/projects/terramar/page.css",
+      "static/chunks/app/projects/terramar/page.js"
+    ],
+    "/projects/terramar/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/projects/terramar/layout.js"
+    ],
+    "/projects/alex-stewart/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/projects/alex-stewart/page.css",
+      "static/chunks/app/projects/alex-stewart/page.js"
+    ],
+    "/projects/alex-stewart/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/projects/alex-stewart/layout.js"
     ]
   }
 }

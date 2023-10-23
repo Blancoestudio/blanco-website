@@ -5,6 +5,7 @@ import AppImageCarousel from '@/app/components/AppImageCarousel';
 import { ImageSlider } from '../../components/ImageSlider/index';
 
 import s from "./styles.module.scss";
+import { BannerWrapper } from "../components/BannerWrapper";
 
 export default function Page() {
   const webImages = Array(5)
@@ -19,25 +20,27 @@ export default function Page() {
     });
   return (
     <main className="bg-black">
-      <div className="cover-wrapper">
-        <Image src={bg.src} fill={true} className="img-cover" alt={"image-background"} />
-        <div className="container h-100">
-          <div className="row h-100 justify-content-center align-items-end">
-            <div className="col-11 mb-5">
-              
-              <div className="row">
-                <div className="col-12 col-md-6">
-                  <h1 className="display-1 fw-bold karla">ABASTIBLE</h1>
+      <BannerWrapper>
+        <div className="cover-wrapper">
+          <Image src={bg.src} fill={true} className="img-cover" alt={"image-background"} />
+          <div className="container h-100">
+            <div className="row h-100 justify-content-center align-items-end">
+              <div className="col-11 mb-5">
+                
+                <div className="row">
+                  <div className="col-12 col-md-6">
+                    <h1 className="display-1 fw-bold karla">ABASTIBLE</h1>
+                  </div>
+                  <div className="col-12 col-md-6">
+                    <p className="fs-4">Proyectos de desarrollo de software, aplicaciones e Iot con foco en clientes y distribuidores.</p>
+                  </div>
                 </div>
-                <div className="col-12 col-md-6">
-                  <p className="fs-4">Proyectos de desarrollo de software, aplicaciones e Iot con foco en clientes y distribuidores.</p>
-                </div>
-              </div>
 
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </BannerWrapper>
 
       <div className="py-5">
         <div className="container">

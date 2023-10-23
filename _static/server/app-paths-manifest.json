@@ -1,3 +1,6 @@
 {
-  "/not-found": "app/not-found.js"
+  "/page": "app/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/projects/terramar/page": "app/projects/terramar/page.js",
+  "/projects/alex-stewart/page": "app/projects/alex-stewart/page.js"
 }
