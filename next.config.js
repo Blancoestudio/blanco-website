@@ -11,7 +11,7 @@ const nextConfig = {
     unoptimized: true,
   },
   env: {
-    NEXT_PUBLIC_SITE_URL: 'https://blanco-website-rg5jl.ondigitalocean.app/',
+    NEXT_PUBLIC_SITE_URL: 'https://www.blanco-brand.com/',
   },
 }
 
