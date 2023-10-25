@@ -87,7 +87,7 @@ export const ContactForm = () => {
 
     setSending(true);
 
-    await fetch('/api/contact', {
+    await fetch('https://www.blanco-brand.com/api/contact', {
       method: 'POST',
       body: JSON.stringify(formData),
     })
