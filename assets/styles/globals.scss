@@ -32,8 +32,8 @@ body {
 
 .main-wrapper {
   width: 100vw;
-  height: auto;
-  overflow: hidden;
+  min-height: 100vh;
+  // overflow: hidden;
   scroll-snap-type: y mandatory;
   // .section {
   //  &.section-about-us {

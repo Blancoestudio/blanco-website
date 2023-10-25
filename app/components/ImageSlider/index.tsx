@@ -4,7 +4,6 @@ import React from 'react'
 
 import Image from 'next/image';
 
-import { basePath } from '../../../next.config.js';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -44,7 +43,7 @@ export const ImageSlider = ( props : Props) => {
                 height: '100%',
                 objectFit: "cover",
               }}
-              src={`${basePath}${item}`}
+              src={`${item}`}
               alt={"img-slider"} 
               />
           </div>
