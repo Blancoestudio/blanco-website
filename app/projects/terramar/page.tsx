@@ -49,7 +49,7 @@ const page = () => {
                   <p className="fs-5 text-center text-md-start">Desarrollo de plataforma para Terramar Estados Unidos para seguimiento y control de importaciones y exportaciones de materia prima.</p>
                 </div>
                 <div>
-                  <ImageSlider images={ images } imgWrapperClass={`${s['img-wrapper']}`} />
+                  <ImageSlider images={ images }/>
                   {/* width={675} height={375} */}
                 </div>
                 <div>

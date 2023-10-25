@@ -11,6 +11,61 @@
       "static/chunks/main-app.js",
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
+    ],
+    "/projects/terramar/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/projects/terramar/page.css",
+      "static/chunks/app/projects/terramar/page.js"
+    ],
+    "/projects/alex-stewart/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/projects/alex-stewart/page.css",
+      "static/chunks/app/projects/alex-stewart/page.js"
+    ],
+    "/projects/alex-stewart/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/projects/alex-stewart/layout.js"
+    ],
+    "/projects/terramar/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/projects/terramar/layout.js"
+    ],
+    "/projects/cardiomas/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/projects/cardiomas/page.css",
+      "static/chunks/app/projects/cardiomas/page.js"
+    ],
+    "/projects/cardiomas/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/projects/cardiomas/layout.js"
+    ],
+    "/projects/beewise/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/projects/beewise/page.css",
+      "static/chunks/app/projects/beewise/page.js"
+    ],
+    "/projects/beewise/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/projects/beewise/layout.js"
+    ],
+    "/projects/abastible/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/projects/abastible/page.css",
+      "static/chunks/app/projects/abastible/page.js"
+    ],
+    "/projects/abastible/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/projects/abastible/layout.js"
     ]
   }
 }

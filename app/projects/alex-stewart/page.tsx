@@ -51,10 +51,7 @@ const page = () => {
                   <p className="fs-5 text-center text-md-start">Se desarrolla una plataforma que permite un mejor control, seguimiento y gestión de operaciones, pudiendo monitorear los tiempos de facturación, y envío de informes. Generando una plataforma ágil y amigable para el usuario.</p>
                 </div>
                 <div>
-                  <ImageSlider 
-                    images={images} 
-                    imgWrapperClass={`${s['img-wrapper']}`} 
-                    />
+                  <ImageSlider images={images} />
                 </div>
               </div>
 

@@ -12,11 +12,10 @@ import 'swiper/css/navigation';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
 
-import s from './styles.module.scss';
 
 interface Props {
   images: string[],
-  imgWrapperClass: string,
+  imgWrapperClass?: string,
   width?: number,
   height?: number,
 }
@@ -38,8 +37,14 @@ export const ImageSlider = ( props : Props) => {
           <div className={ imgWrapperClass }>
             <Image 
               draggable="false"
-              fill={true}
-              src={`${basePath}${item}`} 
+              width={500}
+              height={500}
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: "cover",
+              }}
+              src={`${basePath}${item}`}
               alt={"img-slider"} 
               />
           </div>

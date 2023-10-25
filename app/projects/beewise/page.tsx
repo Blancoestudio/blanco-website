@@ -53,7 +53,7 @@ export default function Page() {
                   <p className="fs-5 text-center text-md-start">Es una herramienta de gamificación es decir, facilita el proceso de aprendizaje y consolidación de manera divertida, generando una experiencia positiva en el usuario.</p>
                 </div>
                 <div>
-                  <ImageSlider images={webImages} imgWrapperClass={`${s['img-wrapper']}`} />
+                  <ImageSlider images={webImages} />
                 </div>
                 <div>
                   <p className="fs-5 text-center text-md-start">Beewise permitirá disponer de data para analizar y mejorar el proceso que está apoyando</p>

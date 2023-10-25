@@ -214,7 +214,7 @@ export default function MenuView({ menuViewOpen, setMenuViewOpen } : Props) {
                         <p className="text-white fs-3 anim-line-2">¿Alguna pregunta? Felices te ayudamos</p>
                         <div className="anim-line-3">
                           <button
-                            // onClick={() => handleMenuLink(`/#contactSection`)}
+                            onClick={() => handleMenuLink(`/#contactSection`)}
                             className="btn-gradient mb-5 text-decoration-none text-white" 
                             >
                             Contáctanos

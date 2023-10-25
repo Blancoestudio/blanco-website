@@ -48,10 +48,7 @@ export default function Page() {
 
               <div className={`${s['inner-service-wrapper']} mb-5`}>
                 <div>
-                  <ImageSlider 
-                    images={webImages} 
-                    imgWrapperClass={`${s['img-wrapper']}`}
-                  />
+                  <ImageSlider images={webImages} />
                 </div>    
                 <div>
                   <p className="fs-5 text-center text-md-start">Desarrollo de plataforma interna, para distribuidores para solicitud de pedidos, descuentos, seguimiento de flota y merchandising.</p>  

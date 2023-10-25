@@ -67,12 +67,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" data-bs-theme="dark">
+    <html lang="es" data-bs-theme="dark">
       <body className={`${ karla.variable } ${ nunito.variable }`}>
         <MenuBar/>
-        <div>
-          {children}
-        </div>
+        {children}
         <Footer />
       </body>
     </html>

@@ -158,6 +158,7 @@ export const Portfolio = () => {
               <SwiperSlide className={`${s['swiper-item']}`} key={index}>
                 <Image 
                   fill
+                  priority
                   src={item.imageUrl} 
                   alt={`${ item.title.toLowerCase() }-image`} 
                   />

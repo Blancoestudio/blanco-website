@@ -1,19 +1,19 @@
 .contact-container {
+  width: 100%;
   display: flex;
   align-items: center;
   gap: 2em;
   form {
-    // align-items: stretch;
     display: flex;
     justify-content: center;
     .input-wrapper {
       background-color: black;
-      border: 1px solid gray;
-      border-radius: 37px;
+      border: 2px solid gray;
+      border-radius: 2em;
       padding: 0 4em 0 1em;
       position: relative;
       z-index: 1 !important;
-      padding-right: 10em;
+      padding-right: 180px;
       align-items: stretch;
     }
     input {
