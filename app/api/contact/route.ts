@@ -26,9 +26,7 @@ export async function POST(request: Request) {
 
   try {
     const resp = await sgMail.send(content);
-    console.log('==========================');
-    console.log('Email sent successfully:', resp);
-    console.log('==========================');
+    // console.log('Email sent successfully:', resp);
     
     return new Response(JSON.stringify({ 
       message: 'Message sent successfully.'

@@ -89,7 +89,7 @@ export const ContactForm = () => {
     setSending(true);
 
     // api call
-    const res = await fetch('/api/contact', {
+    const res = await fetch('/send', {
       method: 'POST',
       body: JSON.stringify(formData),
       headers: {
