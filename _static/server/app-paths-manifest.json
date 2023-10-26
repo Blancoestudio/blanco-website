@@ -4,9 +4,9 @@
   "/favicon.ico/route": "app/favicon.ico/route.js",
   "/send/route": "app/send/route.js",
   "/api/contact/route": "app/api/contact/route.js",
-  "/projects/beewise/page": "app/projects/beewise/page.js",
   "/projects/alex-stewart/page": "app/projects/alex-stewart/page.js",
-  "/projects/cardiomas/page": "app/projects/cardiomas/page.js",
   "/projects/abastible/page": "app/projects/abastible/page.js",
-  "/projects/terramar/page": "app/projects/terramar/page.js"
+  "/projects/terramar/page": "app/projects/terramar/page.js",
+  "/projects/beewise/page": "app/projects/beewise/page.js",
+  "/projects/cardiomas/page": "app/projects/cardiomas/page.js"
 }

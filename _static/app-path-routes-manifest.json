@@ -4,9 +4,9 @@
   "/favicon.ico/route": "/favicon.ico",
   "/send/route": "/send",
   "/api/contact/route": "/api/contact",
-  "/projects/beewise/page": "/projects/beewise",
   "/projects/alex-stewart/page": "/projects/alex-stewart",
-  "/projects/cardiomas/page": "/projects/cardiomas",
   "/projects/abastible/page": "/projects/abastible",
-  "/projects/terramar/page": "/projects/terramar"
+  "/projects/terramar/page": "/projects/terramar",
+  "/projects/beewise/page": "/projects/beewise",
+  "/projects/cardiomas/page": "/projects/cardiomas"
 }
