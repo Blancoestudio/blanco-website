@@ -1,24 +1,22 @@
 import sgMail from '@sendgrid/mail';
-import { NextResponse } from 'next/server';
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY!);
 
-type ResponseData = {
-  status?: string;
-  message?: string;
-};
-
-export async function POST(req: Request, res: Response) {
+export async function POST(request: Request) {
   
-  let response: ResponseData = {};
-
-  const { email } = await req.json();
+  const { email } = await request.json()
+  
+  if (!email) {
+    return Response.json({
+      error: "el campo es requerido"
+    })
+  }
 
   const message = `
     Email: ${email}\r\n
   `;
 
-  const data = {
+  const content = {
     to: [ 'dsanchez@blanco-brand.com'],
     from: 'info@blanco-brand.com',
     subject: 'Nuevo contacto blanco-brand website',
@@ -26,22 +24,24 @@ export async function POST(req: Request, res: Response) {
     html: message.replace(/\r\n/g, '<br>'),
   };
 
-  await sgMail
-    .send(data)
-    .then(() => {
-      response = {
-        status: 'success',
-        message: "Tu mensaje fue enviado. Estaremos contactandote.",
-      };
-    })
-    .catch((error) => {
-      response = {
-        status: 'error',
-        message: `Message failed to send with error, ${error}`,
-      };
-    });
+  try {
+    const resp = await sgMail.send(content);
+    console.log('==========================');
+    console.log('Email sent successfully:', resp);
+    console.log('==========================');
+    
+    return new Response(JSON.stringify({ 
+      message: 'Message sent successfully.'
+    }), { status: 200 })  
 
-  return NextResponse.json(response);
+  } catch (error) {
+
+    // console.log('Error:', error);
+    return new Response(JSON.stringify({ 
+      error: 'Message not sent.'
+    }), { status: 500 })  
+
+  }
   
 }
 

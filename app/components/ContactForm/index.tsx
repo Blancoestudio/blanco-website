@@ -66,6 +66,7 @@ export const ContactForm = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    // validation
     if ((formData.email === '') || !emailRegex.test(formData.email)) {
 
       gsap.to(errorAlertRef.current, {
@@ -81,57 +82,57 @@ export const ContactForm = () => {
         })
         
       }, 3000);
-      
+
       return
     }
 
     setSending(true);
 
-    await fetch('https://www.blanco-brand.com/api/contact', {
+    // api call
+    const res = await fetch('/api/contact', {
       method: 'POST',
       body: JSON.stringify(formData),
-    })
-      .then((res) => res.json())
-      .then((res) => {
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    });
 
-        if (res.status === "success") {
+    if (res.ok) {
 
-          setFormData({ email: '' });
-          gsap.to(successAletRef.current, {
-            opacity: 1,
-            top: '110%'
-          })
-          setTimeout(() => {
-            gsap.to(successAletRef.current, {
-              opacity: 0,
-              top: 0
-            })
-          }, 3000);
+      const response = await res.json();
+      setFormData({ email: '' });
+      gsap.to(successAletRef.current, {
+        opacity: 1,
+        top: '110%'
+      })
+      setTimeout(() => {
+        gsap.to(successAletRef.current, {
+          opacity: 0,
+          top: 0
+        })
+      }, 3000);
 
-          setSending(false);
-          
-        }
-        else {
+      setSending(false);
 
-          gsap.to(errorAlertRef.current, {
-            opacity: 1,
-            top: '110%'
-          })
+    } else {
+      
+      gsap.to(errorAlertRef.current, {
+        opacity: 1,
+        top: '110%'
+      })
 
-          setTimeout(() => {
-            
-            gsap.to(errorAlertRef.current, {
-              opacity: 0,
-              top: '0'
-            })
-            
-          }, 3000);
+      setTimeout(() => {
+        
+        gsap.to(errorAlertRef.current, {
+          opacity: 0,
+          top: '0'
+        })
+        
+      }, 3000);
 
-          setSending(false);
+      setSending(false);
 
-        }
-
-      });
+    }
 
   }
 

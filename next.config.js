@@ -6,8 +6,8 @@ const nextConfig = {
   // output: isProd ? 'export' : 'standalone',
   // basePath: '/.',
   // basePath: '',
-  output: 'export',
-  distDir: '_static',
+  output: 'standalone',
+  // distDir: '_static',
   images: {
     unoptimized: true,
   },
