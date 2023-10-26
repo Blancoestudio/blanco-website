@@ -1,0 +1,1 @@
+self.__NEXT_FONT_MANIFEST="{\"pages\":{},\"app\":{\"/Users/dsanchez/Desktop/projects/blanco/app/layout\":[\"static/media/ba5f7ed75552623e-s.p.woff2\",\"static/media/21ed5661b47f7f6d-s.p.woff2\"]},\"appUsingSizeAdjust\":true,\"pagesUsingSizeAdjust\":false}"
