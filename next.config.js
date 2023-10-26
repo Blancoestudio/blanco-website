@@ -4,8 +4,7 @@ const isProd = process.env.NODE_ENV === 'production';
 
 const nextConfig = {
   // output: isProd ? 'export' : 'standalone',
-  output: 'standalone',
-  basePath: '/.',
+  // basePath: '/.',
   // basePath: '',
   distDir: '_static',
   images: {
